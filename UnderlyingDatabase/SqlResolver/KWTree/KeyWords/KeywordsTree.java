@@ -1,14 +1,16 @@
 package KeyWords;
 
-public class KeywordsTree {
-    public void CreateTree() {
-        //创建一棵树
-        Tree tree = new Tree();
-        //创建一个根节点
-        KeywordsTreeNode root = new KeywordsTreeNode("xx", "root");
+import javax.swing.*;
+
+public class KeywordsTree implements KTreeImpl {
+    //创建一棵树
+    private Tree tree = new Tree();
+    //创建一个根节点
+    private KeywordsTreeNode root = new KeywordsTreeNode("xx", "root");
+
+    private void CreateTree() {
         //把根节点赋给树(0层)
         tree.setRoot(root);
-
         //创建子节点
         KeywordsTreeNode treeNode = new KeywordsTreeNode("00", "create");
         KeywordsTreeNode treeNode1 = new KeywordsTreeNode("01", "NAME");
@@ -79,8 +81,24 @@ public class KeywordsTree {
         treeNode13.setRightNode(treeNode29);
         //设置5层子节点
         treeNode14.setLeftNode(treeNode30);
+    }
 
 
-        //change(String[] arr, Tree tree)返回来一个数组
+    private String[] arr;
+
+    public void KeyKeywordsTree() {}
+
+    public String[] change1(String[] arr, Tree tree) {
+        String nums[] = new String[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            nums[i] = tree.compare(arr[i], tree.root);
+        }
+        return nums;
+    }
+
+    @Override
+    public String[] change(String[] arr) {
+        return change1(arr,tree);
     }
 }

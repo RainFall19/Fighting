@@ -1,7 +1,7 @@
 package KeyWords;
 
 
-public class Tree implements KTreeImpl{
+public class Tree{
 
     KeywordsTreeNode root;
 
@@ -27,15 +27,5 @@ public class Tree implements KTreeImpl{
             compare(str, root.rightNode);
         }
         return null;
-    }
-
-    @Override
-    public String[] change(String[] arr, Tree tree) {
-        String nums[] = new String[arr.length];
-
-        for (int i = 0; i < arr.length; i++) {
-            nums[i] = tree.compare(arr[i], tree.root);
-        }
-        return nums;
     }
 }
