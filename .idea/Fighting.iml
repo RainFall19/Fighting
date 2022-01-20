@@ -6,9 +6,10 @@
       <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/SqlResolver/KWTree" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/SqlResolver/Participle" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/SqlResolver/SyntaxTree" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/PerformOperations" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/SqlResolver" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/PerformOperations/myproject/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/PerformOperations" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

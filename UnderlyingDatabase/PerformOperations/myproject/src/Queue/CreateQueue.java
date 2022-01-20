@@ -1,15 +1,12 @@
 package Queue;
-import java.sql.Timestamp;
 
 import java.util.Date;
-
-import java.util.Enumeration;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class CreateQueue {
-    public static void main(String args[]) throws Tree {
+    public static void main(String args[])  {
 
         createScheduleQueue();
         TimerTask timerTask = new TimerTask() {
@@ -40,7 +37,7 @@ public class CreateQueue {
     }
 
 
-    public static void createScheduleQueue() throws Tree {
+    public static void createScheduleQueue()  {
 
         System.out.println("开始创建计划执行队列... ...");
     }

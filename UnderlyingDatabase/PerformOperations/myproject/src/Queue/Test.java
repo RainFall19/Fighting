@@ -19,19 +19,6 @@ public class Test {
 
 //在这里编写处理业务相关的代码，
 
-        MethodContext mc = MethodContext.getContext(Thread.currentThread());
-
-        if (mc == null)
-
-            mc = new MethodContext(null, null);
-
-        if (mc.getAuthentication() == null) {
-
-            SessionAuthenticator sa = new SessionAuthenticator();
-
-            mc.setAuthentication(sa.setUserName(AdministrativeDomainHelper.ADMINISTRATOR_NAME));
-
-        }
 
     }
 
