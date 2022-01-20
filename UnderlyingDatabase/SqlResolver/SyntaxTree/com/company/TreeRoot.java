@@ -168,82 +168,81 @@ public class TreeRoot {
         this.create = create;
     }
 
-    public void deal(String[] s){
+    public void deal(String[] s,String[] n){
         switch (s[0]){
             case "00":{
-                dis(s,create,0);
+                dis(s,create,0,n);
                 break;
             }
             case "03":{
-                dis(s,alter,0);
+                dis(s,alter,0,n);
                 break;
             }
             case "14":{
-                dis(s,scan,0);
+                dis(s,scan,0,n);
                 break;
             }
             case "02":{
-                dis(s,put,0);
+                dis(s,put,0,n);
                 break;
             }
             case "08":{
-                dis(s,delete,0);
+                dis(s,delete,0,n);
                 break;
             }
             case "09":{
-                dis(s,deleteall,0);
+                dis(s,deleteall,0,n);
                 break;
             }
             case "06":{
-                dis(s,get,0);
+                dis(s,get,0,n);
                 break;
             }
             case "07":{
-                dis(s,list,0);
+                dis(s,list,0,n);
                 break;
             }
             case "17":{
-                dis(s,describe,0);
+                dis(s,describe,0,n);
                 break;
             }
             case "12":{
-                dis(s,enable,0);
+                dis(s,enable,0,n);
                 break;
             }
             case "13":{
-                dis(s,disable,0);
+                dis(s,disable,0,n);
                 break;
             }
             case "15":{
-                dis(s,count,0);
+                dis(s,count,0,n);
                 break;
             }
             case "16":{
-                dis(s,exsits,0);
+                dis(s,exsits,0,n);
                 break;
             }
             case "18":{
-                dis(s,drop,0);
+                dis(s,drop,0,n);
                 break;
             }
             case "19":{
-                dis(s,truncate,0);
+                dis(s,truncate,0,n);
                 break;
             }
         }
     }
 
-    private void dis(String[] s,TreeNode t,int x){
+    private void dis(String[] s,TreeNode t,int x,String[] n){
         if(t!=null){
             if(x<(s.length-1)){
                 if(s[x].equals(t.getId())){
-                    System.out.println(t.getId());
-                    dis(s,t.getL_child(),++x);
-                    dis(s,t.getR_child(),x);
+                    dis(s,t.getL_child(),++x,n);
+                    dis(s,t.getR_child(),x,n);
                 }
             }else if (x==s.length-1){
                 if(s[x].equals(t.getId())){
-                    t.deal_with();
+                    t.deal_with(n);
                 }
             }
         }

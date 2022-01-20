@@ -18,8 +18,8 @@ public class BulidTree {
         //建立scan根节点
         TreeNode scan=new ScanNode("14"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setScan(scan);
@@ -53,8 +53,8 @@ public class BulidTree {
         //建立list根节点
         TreeNode list=new ListNode("07"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setList(list);
@@ -63,7 +63,7 @@ public class BulidTree {
         //建立describe根节点
         TreeNode describe=new DescribeNode("17"){
             @Override
-            public void deal_with() {
+            public void deal_with(String[] s) {
                 System.out.println("132");
             }
         };
@@ -73,8 +73,8 @@ public class BulidTree {
         //建立enable根节点
         TreeNode enable=new EnableNode("12"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setEnable(enable);
@@ -83,8 +83,8 @@ public class BulidTree {
         //建立disable根节点
         TreeNode disable=new DisableNode("13"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setDisable(disable);
@@ -93,8 +93,8 @@ public class BulidTree {
         //建立count根节点
         TreeNode count =new CountNode("15"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setCount(count);
@@ -103,8 +103,8 @@ public class BulidTree {
         //建立exsits根节点
         TreeNode exsits=new ExsitsNode("16"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setExsits(exsits);
@@ -113,8 +113,8 @@ public class BulidTree {
         //建立drop根节点
         TreeNode drop=new DropNode("18"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setDrop(drop);
@@ -124,8 +124,8 @@ public class BulidTree {
         //建立truncate根节点
         TreeNode truncate=new TruncateNode("19"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setTruncate(truncate);
@@ -140,8 +140,8 @@ public class BulidTree {
         //建立use根节点
         TreeNode use=new UseNode("26"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setUse(use);
@@ -152,15 +152,16 @@ public class BulidTree {
     private void build_creat(TreeNode t){
         TreeNode treeNode_1_l=new CreateNode("22"){
             @Override
-            public void deal_with() {
-                System.out.println("xxxxx");
+            public void deal_with(String[] s) {
+                Create create=new Create();
+                create.create_table(s);
             }
         };
         t.setL_child(treeNode_1_l);
         TreeNode treeNode_1_r=new CreateNode("28"){
-            @Override
-            public void deal_with() {
-                System.out.println("zzzzz");
+            public void deal_with(String[] s) {
+                Create create=new Create();
+                create.create_database(s);
             }
         };
         t.setR_child(treeNode_1_r);
@@ -170,8 +171,9 @@ public class BulidTree {
         treeNode_1_l.setL_child(treeNode_2_l);
         TreeNode treeNode_2_r=new CreateNode("22"){
             @Override
-            public void deal_with() {
-                System.out.println("ccccc");
+            public void deal_with(String[] s) {
+                Create create=new Create();
+                create.create_table_2(s);
             }
         };
         treeNode_1_l.setR_child(treeNode_2_r);
@@ -188,8 +190,9 @@ public class BulidTree {
         TreeNode treeNode_5_l=new CreateNode("22");
         TreeNode treeNode_5_r=new CreateNode("21"){
             @Override
-            public void deal_with() {
-                System.out.println("aaaaa");
+            public void deal_with(String[] s) {
+                Create create=new Create();
+                create.create_table(s);
             }
         };
         treeNode_4.setL_child(treeNode_5_l);
@@ -202,8 +205,9 @@ public class BulidTree {
 
         TreeNode treeNode_l_7=new CreateNode("21"){
             @Override
-            public void deal_with() {
-                System.out.println("qqqqq");
+            public void deal_with(String[] s) {
+                Create create=new Create();
+                create.create_table_c(s);
             }
         };
         treeNode_l_6.setL_child(treeNode_l_7);
@@ -228,8 +232,9 @@ public class BulidTree {
         TreeNode treeNode_l_12_l =new CreateNode("22");
         TreeNode treeNode_l_12_r=new CreateNode("21"){
             @Override
-            public void deal_with() {
-                System.out.println("rrrrrr");
+            public void deal_with(String[] s) {
+                Create create=new Create();
+                create.create_table_2(s);
             }
         };
         treeNode_l_11.setL_child(treeNode_l_12_l);
@@ -242,7 +247,7 @@ public class BulidTree {
 
         TreeNode treeNode_l_14 =new CreateNode("21"){
             @Override
-            public void deal_with() {
+            public void deal_with(String[] s) {
                 System.out.println("wwwww");
             }
         };
@@ -268,7 +273,7 @@ public class BulidTree {
         TreeNode treeNode_r_10_l=new CreateNode("22");
         TreeNode treeNode_r_10_r=new CreateNode("21"){
             @Override
-            public void deal_with() {
+            public void deal_with(String[] s) {
                 System.out.println("ggggggg");
             }
         };
@@ -282,7 +287,7 @@ public class BulidTree {
 
         TreeNode treeNode_r_12=new CreateNode("21"){
             @Override
-            public void deal_with() {
+            public void deal_with(String[] s) {
                 System.out.println("kkkkkk");
             }
         };
@@ -294,15 +299,16 @@ public class BulidTree {
     private void build_alter(TreeNode t){
         TreeNode treeNode_1_l=new AlterNode("22"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                Alter alter=new Alter();
+                alter.alter_lie(s);
             }
         };
         t.setL_child(treeNode_1_l);
         TreeNode treeNode_1_r=new AlterNode("25"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setR_child(treeNode_1_r);
@@ -316,8 +322,8 @@ public class BulidTree {
 
         TreeNode treeNode_r_3=new AlterNode("23"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_2_r.setL_child(treeNode_r_3);
@@ -334,8 +340,8 @@ public class BulidTree {
         TreeNode treeNode_5_l=new AlterNode("22");
         TreeNode treeNode_5_r=new AlterNode("21"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_4.setL_child(treeNode_5_l);
@@ -348,8 +354,8 @@ public class BulidTree {
 
         TreeNode treeNode_l_7=new AlterNode("21"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_l_6.setL_child(treeNode_l_7);
@@ -369,8 +375,8 @@ public class BulidTree {
 
         TreeNode treeNode_r_9=new AlterNode("21"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_r_8.setL_child(treeNode_r_9);
@@ -399,8 +405,8 @@ public class BulidTree {
 
         TreeNode treeNode_l_5=new ScanNode("21"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_l_4.setL_child(treeNode_l_5);
@@ -413,8 +419,8 @@ public class BulidTree {
         TreeNode treeNode_r_5_l=new ScanNode("22");
         TreeNode treeNode_r_5_r=new ScanNode("21"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_r_4.setL_child(treeNode_r_5_l);
@@ -431,8 +437,8 @@ public class BulidTree {
 
         TreeNode treeNode_8=new ScanNode("21"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_7.setL_child(treeNode_8);
@@ -455,8 +461,8 @@ public class BulidTree {
 
         TreeNode treeNode_4=new PutNode("22"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_3.setL_child(treeNode_4);
@@ -464,8 +470,8 @@ public class BulidTree {
 
         TreeNode treeNode_5=new PutNode("22"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_4.setL_child(treeNode_5);
@@ -476,8 +482,8 @@ public class BulidTree {
     private void build_delete(TreeNode t) {
         TreeNode treeNode_1=new DeleteNode("22"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setL_child(treeNode_1);
@@ -489,8 +495,8 @@ public class BulidTree {
 
         TreeNode treeNode_3=new DeleteNode("24"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_2.setL_child(treeNode_3);
@@ -498,8 +504,8 @@ public class BulidTree {
 
         TreeNode treeNode_4=new DeleteNode("22"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         treeNode_3.setL_child(treeNode_4);
@@ -510,8 +516,8 @@ public class BulidTree {
     private void bulid_deleteall(TreeNode t){
         TreeNode treeNode_1=new DeleteAllNode("22"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setL_child(treeNode_1);
@@ -522,8 +528,8 @@ public class BulidTree {
     private void build_get(TreeNode t){
         TreeNode treeNode_1=new GetNode("22"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setL_child(treeNode_1);
@@ -534,14 +540,14 @@ public class BulidTree {
     private void build_show(TreeNode t){
         TreeNode treeNode_1_l=new ShowNode("28"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         TreeNode treeNode_1_r=new ShowNode("29"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setL_child(treeNode_1_l);
@@ -551,10 +557,10 @@ public class BulidTree {
 
     //建立drop树
     private void build_drop(TreeNode t){
-        TreeNode treeNode_1=new DropNode("28"){
+        TreeNode treeNode_1=new DropNode("18"){
             @Override
-            public void deal_with() {
-                super.deal_with();
+            public void deal_with(String[] s) {
+                super.deal_with(s);
             }
         };
         t.setL_child(treeNode_1);
