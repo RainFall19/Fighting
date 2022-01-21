@@ -14,7 +14,7 @@ public class TreeRoot {
     private TreeNode enable;
     private TreeNode disable;
     private TreeNode count;
-    private TreeNode exsits;
+    private TreeNode exists;
     private TreeNode drop;
     private TreeNode truncate;
     private TreeNode show;
@@ -124,12 +124,12 @@ public class TreeRoot {
         this.count = count;
     }
 
-    public TreeNode getExsits() {
-        return exsits;
+    public TreeNode getExists() {
+        return exists;
     }
 
-    public void setExsits(TreeNode exsits) {
-        this.exsits = exsits;
+    public void setExists(TreeNode exsits) {
+        this.exists = exsits;
     }
 
     public TreeNode getDrop() {
@@ -219,7 +219,7 @@ public class TreeRoot {
                 break;
             }
             case "16":{
-                dis(s,exsits,0,n);
+                dis(s,exists,0,n);
                 break;
             }
             case "18":{

@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class Create {
     //创建数据库
+    //00 28
     public void create_database(String[] s){
         File file=new File("/home/bai/untitled"+s[0]);
         if(!file.exists()){
@@ -20,6 +21,7 @@ public class Create {
     }
 
     //创建表，列族
+    //00 22
     public void create_table(String[] s){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){
@@ -40,7 +42,8 @@ public class Create {
         }
     }
 
-    //创建表，列族12
+    //创建表，列族1，2
+    //00 22 22
     public void create_table_2(String[] s){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){
@@ -62,6 +65,7 @@ public class Create {
     }
 
     //创建表，列族，参数
+    //00 22 20 01 23 22 23 21
     public void create_table_c(String[] s){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){

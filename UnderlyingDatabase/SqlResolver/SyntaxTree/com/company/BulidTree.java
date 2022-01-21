@@ -100,14 +100,15 @@ public class BulidTree {
         t.setCount(count);
 
 
-        //建立exsits根节点
-        TreeNode exsits=new ExsitsNode("16"){
+        //建立exists根节点
+        TreeNode exists=new ExistsNode("16"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                Exists exists=new Exists();
+                exists.exist(s);
             }
         };
-        t.setExsits(exsits);
+        t.setExists(exists);
 
 
         //建立drop根节点
@@ -159,6 +160,7 @@ public class BulidTree {
         };
         t.setL_child(treeNode_1_l);
         TreeNode treeNode_1_r=new CreateNode("28"){
+            @Override
             public void deal_with(String[] s) {
                 Create create=new Create();
                 create.create_database(s);
@@ -308,7 +310,8 @@ public class BulidTree {
         TreeNode treeNode_1_r=new AlterNode("25"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                Alter alter=new Alter();
+                alter.alter_database(s);
             }
         };
         t.setR_child(treeNode_1_r);
@@ -323,7 +326,8 @@ public class BulidTree {
         TreeNode treeNode_r_3=new AlterNode("23"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                Alter alter=new Alter();
+                alter.alter_delete(s);
             }
         };
         treeNode_2_r.setL_child(treeNode_r_3);

@@ -5,7 +5,7 @@ public class TreeNode {
     private TreeNode l_child;
     private TreeNode r_child;
 
-    public void deal_with(){
+    public void deal_with(String[] s){
     }
 
     public TreeNode(String id) {
@@ -43,7 +43,7 @@ class CreateNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Create语法错误...");
     }
 }
@@ -54,7 +54,7 @@ class AlterNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Alter语法错误...");
     }
 }
@@ -65,7 +65,7 @@ class ScanNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Scan语法错误...");
     }
 }
@@ -76,7 +76,7 @@ class PutNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Put语法错误...");
     }
 }
@@ -87,7 +87,7 @@ class DeleteNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Delete语法错误...");
     }
 }
@@ -98,7 +98,7 @@ class DeleteAllNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("DeleteAll语法错误...");
     }
 }
@@ -109,7 +109,7 @@ class GetNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Get语法错误...");
     }
 }
@@ -120,7 +120,7 @@ class ListNode extends TreeNode{
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("List语法错误...");
     }
 }
@@ -131,7 +131,7 @@ class DescribeNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Describe语法错误...");
     }
 }
@@ -142,7 +142,7 @@ class EnableNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Enable语法错误...");
     }
 }
@@ -153,7 +153,7 @@ class DisableNode extends TreeNode{
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Disable语法错误...");
     }
 }
@@ -164,19 +164,19 @@ class CountNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Count语法错误...");
     }
 }
 
-class ExsitsNode extends TreeNode {
-    public ExsitsNode(String id) {
+class ExistsNode extends TreeNode {
+    public ExistsNode(String id) {
         super(id);
     }
 
     @Override
-    public void deal_with() {
-        System.out.println("Exsots语法错误...");
+    public void deal_with(String[] s) {
+        System.out.println("Exists语法错误...");
     }
 }
 
@@ -186,7 +186,7 @@ class DropNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Drop语法错误...");
     }
 }
@@ -197,7 +197,7 @@ class TruncateNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("Truncate语法错误...");
     }
 }
@@ -208,7 +208,7 @@ class ShowNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("show语法错误...");
     }
 }
@@ -219,7 +219,7 @@ class UseNode extends TreeNode {
     }
 
     @Override
-    public void deal_with() {
+    public void deal_with(String[] s) {
         System.out.println("use语法错误...");
     }
 }
