@@ -9,7 +9,7 @@ public class Create {
     //创建数据库
     //00 28
     public void create_database(String[] s){
-        File file=new File("/home/bai/untitled"+s[0]);
+        File file=new File("/home/bai/untitled/"+s[0]);
         if(!file.exists()){
             file.mkdir();
             System.out.println("创建成功...");

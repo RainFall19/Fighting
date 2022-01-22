@@ -54,7 +54,8 @@ public class BulidTree {
         TreeNode list=new ListNode("07"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                List list=new List();
+                list.list();
             }
         };
         t.setList(list);
