@@ -9,8 +9,8 @@ public class Main {
         BulidTree bulidTree=new BulidTree();
         bulidTree.build(treeroot);
 //        bulidTree.dis(treeroot.getScan());
-        String[] s={"07"};
-        String[] n={"stu3"};
+        String[] s={"02","22","22","24","22"};
+        String[] n={"stu1","1000","info1","name","zhangsan"};
         treeroot.deal(s,n);
     }
 }

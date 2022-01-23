@@ -467,7 +467,13 @@ public class BulidTree {
         TreeNode treeNode_4=new PutNode("22"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                Put put=new Put();
+//                put.put(s);
+//                put.new_put();
+//                put.dis();
+//                System.out.println("添加成功...");
+                put.new_put();
+                put.put(s);
             }
         };
         treeNode_3.setL_child(treeNode_4);
