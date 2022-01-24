@@ -468,12 +468,15 @@ public class BulidTree {
             @Override
             public void deal_with(String[] s) {
                 Put put=new Put();
+                put.new_put();
 //                put.put(s);
 //                put.new_put();
 //                put.dis();
-//                System.out.println("添加成功...");
-                put.new_put();
-                put.put(s);
+                if (put.put_new_data(s)) {
+                    System.out.println("添加成功...");
+                }else {
+                    System.out.println("添加失败...");
+                }
             }
         };
         treeNode_3.setL_child(treeNode_4);
