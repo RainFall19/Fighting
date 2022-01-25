@@ -66,7 +66,7 @@ public class Scan {
                 //以空格分隔出行键
                 rowKeys.add(str.split(" ")[0]);
                 str = reader.readLine();
-                if (s[1].equals(str.split(" ")[0])){
+                if (s[1].equals(str.split(" ")[0])) {
                     System.out.println(str);
                     break;
                 }
@@ -92,6 +92,34 @@ public class Scan {
      * 14 22 20 10 23 22 11 23 21
      */     //s[0]表名    s[1]开头行键    s[2]末尾行键
     public void scan_table_startRow_endRow(String[] s) {
-
+        //创建一个对象指向要查询的表文件夹
+        File file = new File("/home/bai/untitled/" + Main.database + "/" + s[0]);
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            //读取每一行
+            String str = reader.readLine();
+            int i = 0;
+            List<String> rowKeys = new ArrayList<String>();
+            while (str != null) {
+                //以空格分隔出行键
+                rowKeys.add(str.split(" ")[0]);
+                str = reader.readLine();
+                if (s[1].equals(str.split(" ")[0])) {
+                    while (!s[2].equals(str.split(" ")[0])){
+                        System.out.println(str);
+                        rowKeys.add(str.split(" ")[0]);
+                        str = reader.readLine();
+                        if (s[2].equals(str.split(" ")[0])){
+                            System.out.println(str);
+                            break;
+                        }
+                    }
+                    break;
+                }
+                i++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
