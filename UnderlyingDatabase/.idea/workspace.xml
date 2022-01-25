@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d4071a0-9a42-453e-bcad-c20b075c2364" name="Default Changelist" comment="" />
+    <list default="true" id="6d4071a0-9a42-453e-bcad-c20b075c2364" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/UnderlyingDatabase.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SqlResolver/SyntaxTree/com/company/Operations/Describe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SqlResolver/SyntaxTree/com/company/Operations/Drop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SqlResolver/SyntaxTree/com/company/Operations/Get.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SqlResolver/SyntaxTree/com/company/Operations/Scan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SqlResolver/SyntaxTree/com/company/Operations/Truncate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/SqlResolver.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/SqlResolver.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$34.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$35.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$36.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$37.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree$38.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/BulidTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Fighting/com/company/Put.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Fighting/com/company/Put.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +58,8 @@
   <component name="ProjectId" id="23tdYoquEUFGd8UOe97ii0H4HfI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
@@ -86,6 +112,7 @@
       <workItem from="1642570701012" duration="12150000" />
       <workItem from="1642586745587" duration="310000" />
       <workItem from="1642587138953" duration="1080000" />
+      <workItem from="1643094596601" duration="77000" />
     </task>
     <servers />
   </component>
@@ -104,5 +131,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
   </component>
 </project>
