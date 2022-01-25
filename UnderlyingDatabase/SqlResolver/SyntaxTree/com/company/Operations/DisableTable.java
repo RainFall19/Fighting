@@ -5,8 +5,8 @@ package com.company.Operations;
 //import org.apache.hadoop.hbase.client.HBaseAdmin;
 //
 //import java.io.IOException;
-
-public class DisableTable {//暂时先把表改为只读不可写,待改
+/*待改*/
+public class DisableTable {
 
     /**
      * (先禁用再删除)禁用表

@@ -5,7 +5,7 @@ package com.company.Operations;
 //import org.apache.hadoop.hbase.client.HBaseAdmin;
 //
 //import java.io.IOException;
-
+/*待改*/
 public class EnableTable {
     /**
      * 启用表

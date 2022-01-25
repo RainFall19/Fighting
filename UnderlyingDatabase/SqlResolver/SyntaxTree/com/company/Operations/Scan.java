@@ -68,6 +68,7 @@ public class Scan {
                 str = reader.readLine();
                 if (s[1].equals(str.split(" ")[0])){
                     System.out.println(str);
+                    break;
                 }
                 i++;
             }
