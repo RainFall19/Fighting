@@ -6,26 +6,24 @@ import java.io.*;
 
 public class Put {
 
-    private DataNode dataNode=new DataNode();
 
-    public Boolean put_new_data(String[] s){
+    public boolean put_new_data(String[] s, DataNode dataNode){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){
             System.out.println("当前数据库中没有"+s[0]+"表...");
             return false;
         }
-
         try {
             BufferedReader br=new BufferedReader(new FileReader("/home/bai/untitled/"+Main.database+"/p.txt"));
             String readFile;
             while ((readFile=br.readLine())!=null){
                 String[] readLine=readFile.split("\t");
                 String[] readTable=readLine[0].split("：");
-                if(readTable[1]==s[0]){
+                if(readTable[1].equals(s[0])){
                     String[] readInfo=readLine[1].split("：");
                     int n=0;
                     for (int i=1;i<readInfo.length;++i){
-                        if(readInfo[i]==s[2]){
+                        if(readInfo[i].equals(s[2])){
                             n++;
                             break;
                         }
@@ -35,15 +33,18 @@ public class Put {
                         return false;
                     }
                 }
-                br.close();
             }
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //放入列表中
         DataNode d1=dataNode;
         while (d1.getId()!=null){
             d1=d1.getNext();
         }
+        dataNode.setTail(d1);
         d1.setTable(s[0]);
         d1.setId(s[1]);
         d1.setInfo(s[2]);
@@ -59,23 +60,15 @@ public class Put {
         return true;
     }
 
-    public void new_put(){
-        DataNode dataNode1=dataNode;
-        dataNode.setTime(0);
-        for (int i=1;i<2;++i){
-            dataNode1.setNext(new DataNode());
-            dataNode1=dataNode1.getNext();
-            dataNode1.setTime(i);
-        }
-    }
 
-    public void dis(){
-        DataNode d=dataNode;
-        for (int i=0;i<16;++i) {
-            System.out.println(d.getTime());
-            d=d.getNext();
-        }
-    }
+
+//    public void dis(){
+//        DataNode d=dataNode;
+//       while (d!=null){
+//            System.out.println(d.getTime());
+//            d=d.getNext();
+//        }
+//    }
 
     public void put(String[] s){
 
@@ -88,7 +81,7 @@ public class Put {
         try {
             BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/"+d.getTable()+"/data.txt",true));
             while (d!=null){
-                bw.write(d.getInfo()+"\t"+d.getInfo()+":"+d.getKey()+"=>"+d.getVal()+"\t"+d.getTime());
+                bw.write(d.getId()+"\t"+d.getInfo()+":"+d.getKey()+"=>"+d.getVal()+"\t"+d.getTime()+"\n");
                 d=d.getNext();
             }
             bw.close();

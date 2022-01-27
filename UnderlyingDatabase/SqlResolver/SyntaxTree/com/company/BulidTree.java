@@ -467,12 +467,7 @@ public class BulidTree {
         TreeNode treeNode_4=new PutNode("22"){
             @Override
             public void deal_with(String[] s) {
-                Put put=new Put();
-                put.new_put();
-//                put.put(s);
-//                put.new_put();
-//                put.dis();
-                if (put.put_new_data(s)) {
+                if (Main.service.put_new_data(s)) {
                     System.out.println("添加成功...");
                 }else {
                     System.out.println("添加失败...");
@@ -485,7 +480,11 @@ public class BulidTree {
         TreeNode treeNode_5=new PutNode("22"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                if (Main.service.put_new_data(s)) {
+                    System.out.println("添加成功...");
+                }else {
+                    System.out.println("添加失败...");
+                }
             }
         };
         treeNode_4.setL_child(treeNode_5);

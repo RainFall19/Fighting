@@ -8,6 +8,15 @@ public class DataNode {
     private DataNode next;
     private String table;
     private String info;
+    private DataNode tail;
+
+    public DataNode getTail() {
+        return tail;
+    }
+
+    public void setTail(DataNode tail) {
+        this.tail = tail;
+    }
 
     public String getTable() {
         return table;
