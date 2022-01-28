@@ -10,6 +10,7 @@ public class Create {
     //00 28
     public void create_database(String[] s){
         File file=new File("/home/bai/untitled/"+s[0]);
+        //如果当前文件夹不存在创建文件夹，并使当前使用数据库改为此数据库
         if(!file.exists()){
             file.mkdir();
             System.out.println("创建成功...");

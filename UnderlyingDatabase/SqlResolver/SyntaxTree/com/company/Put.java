@@ -62,19 +62,6 @@ public class Put {
 
 
 
-//    public void dis(){
-//        DataNode d=dataNode;
-//       while (d!=null){
-//            System.out.println(d.getTime());
-//            d=d.getNext();
-//        }
-//    }
-
-    public void put(String[] s){
-
-    }
-
-
 
     public void put_write(DataNode d){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+d.getTable());

@@ -230,6 +230,9 @@ public class TreeRoot {
                 dis(s,truncate,0,n);
                 break;
             }
+            case "26":{
+                dis(s,use,0,n);
+            }
         }
     }
 

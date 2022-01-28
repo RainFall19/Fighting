@@ -143,7 +143,9 @@ public class BulidTree {
         TreeNode use=new UseNode("26"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                System.out.println(111);
+                Use use1=new Use();
+                use1.use(s);
             }
         };
         t.setUse(use);
@@ -502,14 +504,21 @@ public class BulidTree {
         t.setL_child(treeNode_1);
 
 
-        TreeNode treeNode_2=new DeleteNode("22");
+        TreeNode treeNode_2=new DeleteNode("22"){
+            @Override
+            public void deal_with(String[] s) {
+                Delete delete=new Delete();
+                delete.delete_info(s);
+            }
+        };
         treeNode_1.setL_child(treeNode_2);
 
 
         TreeNode treeNode_3=new DeleteNode("24"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                Delete delete=new Delete();
+                delete.delete_info_lie(s);
             }
         };
         treeNode_2.setL_child(treeNode_3);
@@ -518,7 +527,8 @@ public class BulidTree {
         TreeNode treeNode_4=new DeleteNode("22"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                Delete delete=new Delete();
+                delete.delete_info_time(s);
             }
         };
         treeNode_3.setL_child(treeNode_4);

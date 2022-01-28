@@ -14,7 +14,7 @@ public class Storage {
 
     public void new_write(){
         DataNode dataNode1=write;
-        for (int i=1;i<2;++i){
+        for (int i=1;i<16;++i){
             dataNode1.setNext(new DataNode());
             dataNode1=dataNode1.getNext();
         }
