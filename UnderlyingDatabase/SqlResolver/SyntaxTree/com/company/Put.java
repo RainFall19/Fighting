@@ -7,7 +7,7 @@ import java.io.*;
 public class Put {
 
 
-    public boolean put_new_data(String[] s, DataNode dataNode){
+    public boolean put_new_data(String[] s, DataNodeLink dataNode){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){
             System.out.println("当前数据库中没有"+s[0]+"表...");
@@ -40,35 +40,35 @@ public class Put {
         }
 
         //放入列表中
-        DataNode d1=dataNode;
-        while (d1.getId()!=null){
+        DataNodeLink d1=dataNode;
+        while (d1.getData().getId()!=null){
             d1=d1.getNext();
         }
         dataNode.setTail(d1);
-        d1.setTable(s[0]);
-        d1.setId(s[1]);
-        d1.setInfo(s[2]);
-        d1.setKey(s[3]);
-        d1.setVal(s[4]);
+        d1.getData().setTable(s[0]);
+        d1.getData().setId(s[1]);
+        d1.getData().setInfo(s[2]);
+        d1.getData().setKey(s[3]);
+        d1.getData().setVal(s[4]);
         long l;
         if(s.length<=5){
             l=System.currentTimeMillis();
         }else {
             l=Long.parseLong(s[5]);
         }
-        d1.setTime(l);
+        d1.getData().setTime(l);
         return true;
     }
 
 
 
 
-    public void put_write(DataNode d){
-        File file=new File("/home/bai/untitled/"+Main.database+"/"+d.getTable());
+    public void put_write(DataNodeLink d){
+        File file=new File("/home/bai/untitled/"+Main.database+"/"+d.getData().getTable());
         try {
-            BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/"+d.getTable()+"/data.txt",true));
+            BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/"+d.getData().getTable()+"/data.txt",true));
             while (d!=null){
-                bw.write(d.getId()+"\t"+d.getInfo()+":"+d.getKey()+"=>"+d.getVal()+"\t"+d.getTime()+"\n");
+                bw.write(d.getData().getId()+"\t"+d.getData().getInfo()+":"+d.getData().getKey()+"=>"+d.getData().getVal()+"\t"+d.getData().getTime()+"\n");
                 d=d.getNext();
             }
             bw.close();

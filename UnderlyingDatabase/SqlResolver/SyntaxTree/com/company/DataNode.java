@@ -5,18 +5,8 @@ public class DataNode {
     private String key;
     private String val;
     private long time;
-    private DataNode next;
     private String table;
     private String info;
-    private DataNode tail;
-
-    public DataNode getTail() {
-        return tail;
-    }
-
-    public void setTail(DataNode tail) {
-        this.tail = tail;
-    }
 
     public String getTable() {
         return table;
@@ -32,14 +22,6 @@ public class DataNode {
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public DataNode getNext() {
-        return next;
-    }
-
-    public void setNext(DataNode next) {
-        this.next = next;
     }
 
     public String getId() {
