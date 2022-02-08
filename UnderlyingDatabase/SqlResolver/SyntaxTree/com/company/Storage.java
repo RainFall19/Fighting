@@ -1,5 +1,7 @@
 package com.company;
 
+import sun.misc.Lock;
+
 //存储服务
 public class Storage {
     private DataNodeLink write;
@@ -14,7 +16,7 @@ public class Storage {
     private int four;
 
     public void dis(){
-        DataNodeLink t1=two_sever;
+        DataNodeLink t1=four_sever;
         while (t1!=null){
             System.out.println(t1.getData().getId());
             t1=t1.getNext();
@@ -66,15 +68,15 @@ public class Storage {
                 @Override
                 public void run() {
                     DataNodeLink t1=read;
-                    DataNode tt=new DataNode();
+                    DataNode tt;
                     while (t1!=null){
                         DataNodeLink t2=read;
                         while (t2!=null){
-                            if(t2.getNext()!=null){
-                                if(t2.getData().getId().compareTo(t2.getNext().getData().getId())>0){
-                                    tt= t2.getData();
-                                    t2.setData(t1.getNext().getData());
-                                    t1.getNext().setData(tt);
+                            if(t2!=null){
+                                if((t2.getData().getId().compareTo(t1.getData().getId())>0)&&(t2.getData().getId().length()>t1.getData().getId().length())){
+                                    tt=t2.getData();
+                                    t2.setData(t1.getData());
+                                    t1.setData(tt);
                                 }
                             }
                             t2=t2.getNext();
@@ -92,34 +94,111 @@ public class Storage {
     }
 
     public void two_sever(){
-        if(two>=3){
-            ;
+        if(two>=4){
+            three_sever();
+            two=0;
         }
         if(two==0){
             two_sever=read;
-            two_sever.setTail(read.getTail());
         }else {
-//            DataNodeLink t1;
-//            DataNodeLink nodeLink=two_sever;
-//            while (nodeLink.getNext()!=null){
-//                if(read.getData().getId().compareTo(nodeLink.getNext().getData().getId())<0){
-//                    t1=nodeLink;
-//                    DataNodeLink d=read;
-//                    nodeLink.setNext(d);
-//                    read=read.getNext();
-//                    d.setNext(t1);
-//                }
-//                nodeLink=nodeLink.getNext();
-//            }
-//            while (read!=null){
-//                nodeLink.setNext(read);
-//                read=read.getNext();
-//                nodeLink=nodeLink.getNext();
-//            }
-//            two_sever.setTail(nodeLink);
+            DataNodeLink t1;
+            DataNodeLink nodeLink=new DataNodeLink();
+            nodeLink.setNext(two_sever);
+            int num=0;
+            while (read!=null&&nodeLink.getNext()!=null){
+                if((read.getData().getId().compareTo(nodeLink.getNext().getData().getId())<=0)&&(read.getData().getId().length()<nodeLink.getNext().getData().getId().length())){
+                    DataNodeLink d=read;
+                    read=read.getNext();
+                    t1=nodeLink.getNext();
+                    nodeLink.setNext(d);
+                    d.setNext(t1);
+                    if(num==0){
+                    two_sever=nodeLink.getNext();
+                    }
+                }
+                num++;
+                nodeLink=nodeLink.getNext();
+            }
+            while (read!=null){
+                nodeLink.setNext(read);
+                read=read.getNext();
+                nodeLink=nodeLink.getNext();
+            }
+            two_sever.setTail(nodeLink);
         }
         new_read();
         two++;
     }
 
+    public void three_sever(){
+        if(three>=4){
+            four_sever();
+            three=0;
+        }
+        if(three==0){
+            three_sever=two_sever;
+        }else {
+            DataNodeLink t1;
+            DataNodeLink nodeLink=new DataNodeLink();
+            nodeLink.setNext(three_sever);
+            int num=0;
+            while (two_sever!=null&&nodeLink.getNext()!=null){
+                if((two_sever.getData().getId().compareTo(nodeLink.getNext().getData().getId())<=0&&(two_sever.getData().getId().length()<nodeLink.getNext().getData().getId().length()))){
+                    DataNodeLink d=two_sever;
+                    two_sever=two_sever.getNext();
+                    t1=nodeLink.getNext();
+                    nodeLink.setNext(d);
+                    d.setNext(t1);
+                    if(num==0){
+                        three_sever=nodeLink.getNext();
+                    }
+                }
+                num++;
+                nodeLink=nodeLink.getNext();
+            }
+            while (two_sever!=null){
+                nodeLink.setNext(two_sever);
+                two_sever=two_sever.getNext();
+                nodeLink=nodeLink.getNext();
+            }
+            three_sever.setTail(nodeLink);
+        }
+        three++;
+    }
+
+    public void four_sever(){
+        if(four>=4){
+            put.put_write(four_sever);
+            four=0;
+        }
+        if(four==0){
+            four_sever=three_sever;
+        }else {
+            DataNodeLink t1;
+            DataNodeLink nodeLink=new DataNodeLink();
+            nodeLink.setNext(four_sever);
+            int num=0;
+            while (three_sever!=null&&nodeLink.getNext()!=null){
+                if((three_sever.getData().getId().compareTo(nodeLink.getNext().getData().getId())<=0&&(three_sever.getData().getId().length()<nodeLink.getNext().getData().getId().length()))){
+                    DataNodeLink d=three_sever;
+                    three_sever=three_sever.getNext();
+                    t1=nodeLink.getNext();
+                    nodeLink.setNext(d);
+                    d.setNext(t1);
+                    if(num==0){
+                        four_sever=nodeLink.getNext();
+                    }
+                }
+                num++;
+                nodeLink=nodeLink.getNext();
+            }
+            while (three_sever!=null){
+                nodeLink.setNext(three_sever);
+                three_sever=three_sever.getNext();
+                nodeLink=nodeLink.getNext();
+            }
+            four_sever.setTail(nodeLink);
+        }
+        four++;
+    }
 }
