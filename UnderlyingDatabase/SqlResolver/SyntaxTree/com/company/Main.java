@@ -16,15 +16,17 @@ public class Main {
         bulidTree.build(treeroot);
         String[] s = {"02", "22", "22","24","22"};
         String[] n = {"stu1", "1011", "info1","name","zzz"};
-        for (int i=0;i<84;++i){
+        for (int i=0;i<123;++i){
             n[1]=String.valueOf(i+1);
             treeroot.deal(s, n);
         }
-        try {
-            Thread.sleep(10);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         service.dis();
+        service.scan("13");
+        //you wen ti,xu yao jia suo
     }
 }

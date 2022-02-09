@@ -14,9 +14,12 @@ public class Storage {
     private int two;
     private int three;
     private int four;
+    private Read_Sever read_sever=new Read_Sever();
+
+
 
     public void dis(){
-        DataNodeLink t1=four_sever;
+        DataNodeLink t1=two_sever;
         while (t1!=null){
             System.out.println(t1.getData().getId());
             t1=t1.getNext();
@@ -28,7 +31,30 @@ public class Storage {
         new_read();
     }
 
-    public void new_write(){
+    private void new_read_sever(int x){
+        Read_Sever sever=read_sever;
+        while (sever.getNext()!=null){
+            sever= sever.getNext();
+        }
+        sever.setNext(new Read_Sever());
+        switch (x){
+            case 0:{
+                sever.getNext().setData(two_sever);
+                break;
+            }
+            case 1:{
+                sever.getNext().setData(three_sever);
+                break;
+            }
+            case 2:{
+                sever.getNext().setData(four_sever);
+                break;
+            }
+        }
+
+    }
+
+    private void new_write(){
         write=new DataNodeLink();
         write.setData(new DataNode());
         DataNodeLink dataNode1=write;
@@ -38,7 +64,8 @@ public class Storage {
             dataNode1=dataNode1.getNext();
         }
     }
-    public void new_read(){
+
+    private void new_read(){
         read=new DataNodeLink();
         read.setData(new DataNode());
         DataNodeLink dataNode1=read;
@@ -100,6 +127,8 @@ public class Storage {
         }
         if(two==0){
             two_sever=read;
+            two_sever.setTail(read.getTail());
+            new_read_sever(0);
         }else {
             DataNodeLink t1;
             DataNodeLink nodeLink=new DataNodeLink();
@@ -123,8 +152,8 @@ public class Storage {
                 nodeLink.setNext(read);
                 read=read.getNext();
                 nodeLink=nodeLink.getNext();
+                two_sever.setTail(nodeLink);
             }
-            two_sever.setTail(nodeLink);
         }
         new_read();
         two++;
@@ -137,6 +166,8 @@ public class Storage {
         }
         if(three==0){
             three_sever=two_sever;
+            three_sever.setTail(two_sever.getTail());
+            new_read_sever(1);
         }else {
             DataNodeLink t1;
             DataNodeLink nodeLink=new DataNodeLink();
@@ -160,8 +191,8 @@ public class Storage {
                 nodeLink.setNext(two_sever);
                 two_sever=two_sever.getNext();
                 nodeLink=nodeLink.getNext();
+                three_sever.setTail(nodeLink);
             }
-            three_sever.setTail(nodeLink);
         }
         three++;
     }
@@ -173,6 +204,8 @@ public class Storage {
         }
         if(four==0){
             four_sever=three_sever;
+            four_sever.setTail(three_sever.getTail());
+            new_read_sever(2);
         }else {
             DataNodeLink t1;
             DataNodeLink nodeLink=new DataNodeLink();
@@ -196,9 +229,26 @@ public class Storage {
                 nodeLink.setNext(three_sever);
                 three_sever=three_sever.getNext();
                 nodeLink=nodeLink.getNext();
+                four_sever.setTail(nodeLink);
             }
-            four_sever.setTail(nodeLink);
         }
         four++;
+    }
+
+    public void scan(String id){
+        Read_Sever read=read_sever.getNext();
+        while (read!=null){
+            if(id.compareTo(read.getData().getData().getId())>=0 && id.compareTo(read.getData().getTail().getData().getId())<=0){
+                DataNodeLink data=read.getData();
+                while (data!=null){
+                    if(data.getData().getId().equals(id)){
+                        System.out.println("ID:"+data.getData().getId()+"\tinfo:"+data.getData().getInfo()
+                        + "\t"+data.getData().getKey()+"="+ data.getData().getVal()+"\t时间:"+data.getData().getTime());
+                    }
+                    data=data.getNext();
+                }
+            }
+            read=read.getNext();
+        }
     }
 }
