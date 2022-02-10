@@ -21,12 +21,15 @@ public class Main {
             treeroot.deal(s, n);
         }
 //        try {
-//            Thread.sleep(10);
+//            Thread.sleep(1000);
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-        service.dis();
-        service.scan("13");
-        //you wen ti,xu yao jia suo
+//        service.dis();
+        service.scan("79" +
+                "" +
+                "" +
+                "" +
+                "");
     }
 }
