@@ -26,10 +26,6 @@ public class Main {
 //            e.printStackTrace();
 //        }
 //        service.dis();
-        service.scan("79" +
-                "" +
-                "" +
-                "" +
-                "");
+        service.scan("121");
     }
 }

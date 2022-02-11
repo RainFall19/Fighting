@@ -40,7 +40,7 @@ public class Put {
         }
 
         //放入列表中
-        DataNodeLink d1=dataNode;
+        DataNodeLink d1=dataNode.getNext();
         while (d1.getData().getId()!=null){
             d1=d1.getNext();
         }
