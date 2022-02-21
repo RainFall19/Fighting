@@ -1,5 +1,7 @@
 package com.company;
 
+import Cache.Cache;
+
 import java.util.Scanner;
 
 public class Main {
@@ -8,6 +10,8 @@ public class Main {
     public static String database = "stu";
     //数据存储服务
     public static Storage service=new Storage();
+    //cache
+    public static Cache cache=new Cache();
 
 
     public static void main(String[] args) {
@@ -26,6 +30,7 @@ public class Main {
 //            e.printStackTrace();
 //        }
 //        service.dis();
+        service.scan("121");
         service.scan("121");
     }
 }

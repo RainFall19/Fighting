@@ -224,6 +224,10 @@ public class Storage {
     }
 
     public void scan(String id){
+        if(Main.cache.cache_read(id)){
+            System.out.println(222);
+            return;
+        }
         Read_Sever read=read_sever.getNext();
         while (read!=null){
             if((id.compareTo(read.getData().getNext().getData().getId())>=0) && (id.length()==read.getData().getNext().getData().getId().length())
@@ -233,6 +237,8 @@ public class Storage {
                     if(data.getData().getId().equals(id)){
                         System.out.println("ID:"+data.getData().getId()+"\tinfo:"+data.getData().getInfo()
                         + "\t"+data.getData().getKey()+"="+ data.getData().getVal()+"\t时间:"+data.getData().getTime());
+                        System.out.println(111);
+                        Main.cache.cache_write(data.getData());
                     }
                     data=data.getNext();
                 }
