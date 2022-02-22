@@ -3,41 +3,30 @@ package Cache;
 import com.company.DataNode;
 
 import java.io.File;
+import java.util.HashMap;
 
 public class Cache {
-    private CacheData cache;
+    private HashMap<String,DataNode> cache=new HashMap<>();
 
     public Cache(){
-        new_cache();
+
     }
 
-    private void new_cache(){
-        cache=new CacheData();
-        CacheData c=cache;
-        for (int i=1;i<64;++i){
-            c.setNext(new CacheData());
-            c=c.getNext();
-        }
-        c.setNext(cache);
-    }
 
 
     public void cache_write(DataNode dataNode){
-        cache=cache.getNext();
-        cache.setData(dataNode);
+        if (cache.get(dataNode.getId())!=null){
+            return;
+        }
+        cache.put(dataNode.getId(),dataNode);
     }
 
     public boolean cache_read(String id){
-        CacheData cacheData=cache;
-            do {
-                if(cacheData.getData()!=null && cacheData.getData().getId()==id){
-                    DataNode data=cacheData.getData();
-                    System.out.println("ID:"+data.getId()+"\tinfo:"+data.getInfo()
-                            + "\t"+data.getKey()+"="+ data.getVal()+"\t时间:"+data.getTime());
-                    return true;
-                }
-                cacheData=cacheData.getNext();
-            }while (cacheData!=cache);
+        if (cache.get(id)!=null){
+            System.out.println("ID:"+cache.get(id).getId()+"\tinfo:"+cache.get(id).getInfo()
+                    + "\t"+cache.get(id).getKey()+"="+ cache.get(id).getVal()+"\t时间:"+cache.get(id).getTime());
+            return true;
+        }
         return false;
     }
 

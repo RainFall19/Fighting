@@ -225,7 +225,6 @@ public class Storage {
 
     public void scan(String id){
         if(Main.cache.cache_read(id)){
-            System.out.println(222);
             return;
         }
         Read_Sever read=read_sever.getNext();
