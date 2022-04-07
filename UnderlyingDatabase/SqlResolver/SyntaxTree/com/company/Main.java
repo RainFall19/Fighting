@@ -11,7 +11,7 @@ public class Main {
     //数据存储服务
     public static Storage service=new Storage();
     //cache
-    public static Cache cache=new Cache();
+    public static Cache cache=new Cache(64);
 
 
     public static void main(String[] args) {

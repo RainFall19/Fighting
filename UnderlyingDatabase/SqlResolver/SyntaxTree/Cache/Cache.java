@@ -1,30 +1,30 @@
 package Cache;
 
 import com.company.DataNode;
+import com.sun.org.apache.bcel.internal.generic.LNEG;
 
 import java.io.File;
 import java.util.HashMap;
 
 public class Cache {
-    private HashMap<String,DataNode> cache=new HashMap<>();
+    private LRU lurCache;
 
-    public Cache(){
-
+    public Cache(int size){
+        lurCache =new LRU(size);
     }
 
-
-
     public void cache_write(DataNode dataNode){
-        if (cache.get(dataNode.getId())!=null){
+        if (lurCache.read(dataNode.getId())!=null){
             return;
         }
-        cache.put(dataNode.getId(),dataNode);
+        lurCache.write(dataNode);
     }
 
     public boolean cache_read(String id){
-        if (cache.get(id)!=null){
-            System.out.println("ID:"+cache.get(id).getId()+"\tinfo:"+cache.get(id).getInfo()
-                    + "\t"+cache.get(id).getKey()+"="+ cache.get(id).getVal()+"\t时间:"+cache.get(id).getTime());
+        DataNode node;
+        if ((node=lurCache.read(id))!=null){
+            System.out.println("ID:"+node.getId()+"\tinfo:"+node.getInfo()
+                    + "\t"+node.getKey()+"="+ node.getVal()+"\t时间:"+ node.getTime());
             return true;
         }
         return false;
