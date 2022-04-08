@@ -2,6 +2,8 @@ package Cache;
 
 import com.company.DataNode;
 
+import java.util.ArrayList;
+
 public class LRU {
     private int size;
     private int count;
@@ -10,49 +12,54 @@ public class LRU {
     public void dis() {
         LURLinkList t = list.getNext();
         while (t != null) {
-            System.out.println(t.getData());
+            System.out.println(t.getData().getId());
             t = t.getNext();
         }
     }
 
-    public DataNode read(String i) {
-        LURLinkList ln = list;
+    public ArrayList<DataNode> read(String i) {
+        LURLinkList ln = list.getNext();
+        ArrayList<DataNode> list1=new ArrayList<>();
         while (ln != null) {
-            if (ln.getData().getId() == i) {
+            if (ln.getData().getId().equals(i)) {
                 LURLinkList t;
-                if (ln.getNext() != null) {
-                    ln.getNext().setPre(ln.getPre());
+                if (list.getNext() != ln && ln.getNext() != null) {
+                    if (ln.getNext() != null) {
+                        ln.getNext().setPre(ln.getPre());
+                    }
+                    if (ln.getPre() != null) {
+                        ln.getPre().setNext(ln.getNext());
+                    }
+                    ln.setNext(list.getNext());
+                    list.getNext().setPre(ln);
+                    ln.setPre(list);
+                    list.setNext(ln);
                 }
-                if (ln.getPre() != null) {
-                    ln.getPre().setNext(ln.getNext());
-                }
-                ln.setNext(list.getNext());
-                list.getNext().setPre(ln);
-                ln.setPre(list);
-                list.setNext(ln);
-                return ln.getData();
+                list1.add(ln.getData());
             }
             ln = ln.getNext();
         }
-        return null;
+        return list1;
     }
 
     public void write(DataNode i) {
-        LURLinkList ln = list;
+        LURLinkList ln = list.getNext();
         while (ln != null) {
             if (ln.getData().getId() == i.getId()) {
-                LURLinkList t;
-                if (ln.getNext() != null) {
-                    ln.getNext().setPre(ln.getPre());
+                if (list.getNext() != ln && ln.getNext() != null) {
+                    LURLinkList t;
+                    if (ln.getNext() != null) {
+                        ln.getNext().setPre(ln.getPre());
+                    }
+                    if (ln.getPre() != null) {
+                        ln.getPre().setNext(ln.getNext());
+                    }
+                    ln.setNext(list.getNext());
+                    list.getNext().setPre(ln);
+                    ln.setPre(list);
+                    list.setNext(ln);
+                    return;
                 }
-                if (ln.getPre() != null) {
-                    ln.getPre().setNext(ln.getNext());
-                }
-                ln.setNext(list.getNext());
-                list.getNext().setPre(ln);
-                ln.setPre(list);
-                list.setNext(ln);
-                return;
             }
             ln = ln.getNext();
         }

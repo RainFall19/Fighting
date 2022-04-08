@@ -19,10 +19,14 @@ public class Storage {
 
 
     public void dis(){
-        DataNodeLink t1=write;
-        while (t1!=null){
-            System.out.println(t1.getData().getId());
-            t1=t1.getNext();
+        Read_Sever r=read_sever.getNext();
+        while (r!=null){
+            DataNodeLink node=r.getData().getNext();
+            while (node!=null){
+                System.out.println(node.getData().getId());
+                node=node.getNext();
+            }
+            r=r.getNext();
         }
     }
 
@@ -69,7 +73,6 @@ public class Storage {
 
     public boolean put_new_data(String[] s){
         if(put.put_new_data(s,write)){
-
             write();
             return true;
         }else {
@@ -78,20 +81,22 @@ public class Storage {
     }
 
     public boolean write(){
+        //如果write的尾部的下一个是空，则写入read
         if(write.getTail().getNext()==null){
             t=write.getNext();
             write.setNext(read);
             read=t;
+            read.setTail(write.getTail());
             Thread thread=new Thread(){
                 @Override
                 public void run() {
                     DataNodeLink t1=read;
                     DataNode tt;
                     while (t1!=null){
-                        DataNodeLink t2=read;
+                        DataNodeLink t2=t1.getNext();
                         while (t2!=null){
                             if(t2!=null){
-                                if((t2.getData().getId().compareTo(t1.getData().getId())>0)&&(t2.getData().getId().length()>t1.getData().getId().length())){
+                                if((t2.getData().getId().length()<t1.getData().getId().length())||((t2.getData().getId().compareTo(t1.getData().getId())<0)&&(t2.getData().getId().length()<t1.getData().getId().length()))){
                                     tt=t2.getData();
                                     t2.setData(t1.getData());
                                     t1.setData(tt);
@@ -112,10 +117,12 @@ public class Storage {
     }
 
     public void two_sever(){
+        //第二层满写入第三层
         if(two>=4){
             three_sever();
             two=0;
         }
+        //第二层空
         if(two==0){
             two_sever.setNext(read);
             two_sever.setTail(read.getTail());
@@ -125,7 +132,9 @@ public class Storage {
             nodeLink.setNext(two_sever.getNext());
             int num=0;
             while (read!=null&&nodeLink.getNext()!=null){
-                if((read.getData().getId().compareTo(nodeLink.getNext().getData().getId())<=0)&&(read.getData().getId().length()<nodeLink.getNext().getData().getId().length())){
+                if((read.getData().getId().length()<nodeLink.getNext().getData().getId().length())||
+                        ((read.getData().getId().compareTo(nodeLink.getNext().getData().getId())<0)&&
+                                (read.getData().getId().length()<nodeLink.getNext().getData().getId().length()))){
                     DataNodeLink d=read;
                     read=read.getNext();
                     t1=nodeLink.getNext();
@@ -163,7 +172,9 @@ public class Storage {
             nodeLink.setNext(three_sever.getNext());
             int num=0;
             while (two_sever.getNext()!=null&&nodeLink.getNext()!=null){
-                if((two_sever.getNext().getData().getId().compareTo(nodeLink.getNext().getData().getId())<=0&&(two_sever.getNext().getData().getId().length()<nodeLink.getNext().getData().getId().length()))){
+                if((two_sever.getNext().getData().getId().length()<nodeLink.getNext().getData().getId().length())||
+                        (two_sever.getNext().getData().getId().compareTo(nodeLink.getNext().getData().getId())<=0&&
+                                (two_sever.getNext().getData().getId().length()<nodeLink.getNext().getData().getId().length()))){
                     DataNodeLink d=two_sever.getNext();
                     two_sever.setNext(two_sever.getNext().getNext());
                     t1=nodeLink.getNext();
@@ -200,7 +211,9 @@ public class Storage {
             nodeLink.setNext(four_sever.getNext());
             int num=0;
             while (three_sever.getNext()!=null&&nodeLink.getNext()!=null){
-                if((three_sever.getNext().getData().getId().compareTo(nodeLink.getNext().getData().getId())<=0&&(three_sever.getNext().getData().getId().length()<nodeLink.getNext().getData().getId().length()))){
+                if(three_sever.getNext().getData().getId().length()<nodeLink.getNext().getData().getId().length()||
+                        (three_sever.getNext().getData().getId().compareTo(nodeLink.getNext().getData().getId())<=0&&
+                        (three_sever.getNext().getData().getId().length()<nodeLink.getNext().getData().getId().length()))){
                     DataNodeLink d=three_sever.getNext();
                     three_sever.setNext(three_sever.getNext().getNext());
                     t1=nodeLink.getNext();
@@ -229,17 +242,18 @@ public class Storage {
         }
         Read_Sever read=read_sever.getNext();
         while (read!=null){
-            if((id.compareTo(read.getData().getNext().getData().getId())>=0) && (id.length()==read.getData().getNext().getData().getId().length())
-                    && (id.compareTo(read.getData().getTail().getData().getId())<=0) || (id.length()<read.getData().getTail().getData().getId().length())){
-                DataNodeLink data=read.getData().getNext();
-                while (data!=null && data.getData().getId()!=null){
-                    if(data.getData().getId().equals(id)){
-                        System.out.println("ID:"+data.getData().getId()+"\tinfo:"+data.getData().getInfo()
-                        + "\t"+data.getData().getKey()+"="+ data.getData().getVal()+"\t时间:"+data.getData().getTime());
-                        System.out.println(111);
-                        Main.cache.cache_write(data.getData());
+            if(read.getData().getNext()!=null && read.getData().getNext().getData().getId()!=null) {
+                if ((id.compareTo(read.getData().getNext().getData().getId()) >= 0) && (id.length() >= read.getData().getNext().getData().getId().length())
+                        && (id.compareTo(read.getData().getTail().getData().getId()) <= 0) || (id.length() < read.getData().getTail().getData().getId().length())) {
+                    DataNodeLink data = read.getData().getNext();
+                    while (data != null && data.getData().getId() != null) {
+                        if (data.getData().getId().equals(id)) {
+                            System.out.println("ID:" + data.getData().getId() + "\tinfo:" + data.getData().getInfo()
+                                    + "\t" + data.getData().getKey() + "=" + data.getData().getVal() + "\t时间:" + data.getData().getTime() + "\tscan");
+                            Main.cache.cache_write(data.getData());
+                        }
+                        data = data.getNext();
                     }
-                    data=data.getNext();
                 }
             }
             read=read.getNext();

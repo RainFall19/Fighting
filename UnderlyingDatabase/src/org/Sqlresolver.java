@@ -25,6 +25,9 @@ public class Sqlresolver {
         KTreeImpl kt = new KeywordsTree();
         String[] arr = kt.change(sqlkw);//语义分析后的数字串的数组
 
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
         //调用语法树接口，传进去语义分析后的数字串的数组，进行语法分析并执行操作，返回是否操作成功
         //boolean Syntax(String[] arr)
     }

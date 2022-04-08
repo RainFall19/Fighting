@@ -20,7 +20,10 @@ public class Main {
         bulidTree.build(treeroot);
         String[] s = {"02", "22", "22","24","22"};
         String[] n = {"stu1", "1011", "info1","name","zzz"};
-        for (int i=0;i<123;++i){
+        treeroot.deal(s,n);
+        n[4]="xxx";
+        treeroot.deal(s,n);
+        for (int i=0;i<7;++i){
             n[1]=String.valueOf(i+1);
             treeroot.deal(s, n);
         }
@@ -30,7 +33,9 @@ public class Main {
 //            e.printStackTrace();
 //        }
 //        service.dis();
-        service.scan("121");
-        service.scan("121");
+//        service.scan("121");
+//        service.dis();
+        service.scan("1011");
+        service.scan("1011");
     }
 }
