@@ -338,21 +338,22 @@ public class BulidTree {
 
         TreeNode treeNode_3=new AlterNode("01");
         treeNode_2_l.setL_child(treeNode_3);
-
+        TreeNode treeNode_3_r=new TreeNode("23");
+        treeNode_2_l.setR_child(treeNode_3_r);
 
         TreeNode treeNode_4=new AlterNode("23");
         treeNode_3.setL_child(treeNode_4);
-
-
-        TreeNode treeNode_5_l=new AlterNode("22");
-        TreeNode treeNode_5_r=new AlterNode("21"){
+        TreeNode treeNode_4_r=new TreeNode("21"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                Alter alter=new Alter();
+                alter.alter_info(s);
             }
         };
+        treeNode_3_r.setR_child(treeNode_4_r);
+
+        TreeNode treeNode_5_l=new AlterNode("22");
         treeNode_4.setL_child(treeNode_5_l);
-        treeNode_4.setR_child(treeNode_5_r);
 
 
         TreeNode treeNode_l_6=new AlterNode("23");
