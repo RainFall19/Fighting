@@ -12,7 +12,7 @@ public class abc{
             "table", "drop", "alter", "database", "NAME", "put", "LIMIT",
             "METHOD", "get", "list", "delete", "deleteall", "STARTROW",
             "ENDROW", "enable", "disable", "scan", "count", "exsits",
-            "describle", "truncate", "{", "}", ",", "=>", ":", "=", ">", ";"};
+            "describle", "truncate", "{", "}", ",","=>",":", ";"};
     static List<String> kW = new ArrayList<String>();
     static  List<String> unkeyWords = new ArrayList<String>();
     static ArrayList<String> keyWords = null;
@@ -20,14 +20,14 @@ public class abc{
     static int p, lines;
 
     public static void main(String[] args) {
-        sql( "put tableName,'rowKey','columnFamily:column','value';");
-//        for (String tmp : kW) {
-//            System.out.println(tmp + " ");
-//        }
-//        System.out.println("\n");
-//        for (String tmp : unkeyWords) {
-//            System.out.println(tmp + " ");
-//        }//可输出查看有什么关键字或者非关键字
+        sql( "put stu1,1011,info1:name,zzz");
+        for (String tmp : kW) {
+            System.out.println(tmp + " ");
+        }
+        System.out.println("\n");
+        for (String tmp : unkeyWords) {
+            System.out.println(tmp + " ");
+        }//可输出查看有什么关键字或者非关键字
     }
     public static void sql(String ac) {
         change();
@@ -50,13 +50,15 @@ public class abc{
             ch = str.charAt(p);
             if (Character.isDigit(ch)) {
                 digitCheck(str);
-            } else if (Character.isLetter(ch) || ch == '_') {
+            } else if (Character.isLetter(ch) || ch == '_'||ch == '{'||ch =='}'||ch ==','||ch ==':'||ch=='='||ch=='>') {
                 letterCheck(str);
-            } else if (ch == '"') {
-                stringCheck(str);
-            } else if (ch == '\'') {
-                stringCheck1(str);
-            } else if (ch == ' ') {
+            }
+//            else if (ch == '"') {
+//                stringCheck(str);
+//            } else if (ch == '\'') {
+//                stringCheck1(str);
+//            }
+        else if (ch == ' ') {
                 continue;
             } else if (ch == ';') {
                 break;
@@ -111,7 +113,7 @@ public class abc{
         char ch;
         for (; p < str.length(); p++) {
             ch = str.charAt(p);
-            if (!Character.isLetterOrDigit(ch) && ch != '_') {
+            if (!Character.isLetterOrDigit(ch) && ch != '_'&&ch!='='&&ch!='>') {
                 break;
             } else {
                 toke += ch;

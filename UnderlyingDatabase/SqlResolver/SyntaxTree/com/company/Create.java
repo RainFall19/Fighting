@@ -87,6 +87,27 @@ public class Create {
         }
     }
 
+    //
+    //00 22 20 01 23 21
+    public void create_table_info(String[] s){
+        File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
+        if(!file.exists()){
+            file.mkdir();
+            File f1=new File("/home/bai/untitled/"+Main.database);
+            if (f1.exists()){
+                try{
+                    BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/p.txt",true));
+                    bw.write("表名："+s[0]+"\t列族："+s[1]+"\t创建时间："+System.currentTimeMillis()+"\t修改时间："+System.currentTimeMillis()+"\n");
+                    bw.close();
+                }catch (IOException e){
+                }
+
+            }
+            System.out.println("创建成功...");
+        }else {
+            System.out.println("当前表已创建...");
+        }
+    }
 
 
 

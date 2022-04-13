@@ -2,6 +2,7 @@ package org;
 
 import KeyWords.KTreeImpl;
 import KeyWords.KeywordsTree;
+import tokeniz.Tok;
 import tokeniz.TokenizImpl;
 import tokeniz.abc;
 
@@ -15,7 +16,7 @@ public class Sqlresolver {
 
         //调用分词接口，传进去一个sql语句(String),返回来一个分词完后的(String)数组
         //String[] tokeniz (String sql)
-        TokenizImpl ti = (TokenizImpl) new abc();
+        Tok ti = new Tok();
         String[] sqlkw = ti.tokeizSqlkw(sql);//分词好的关键字数组
         String[] sqlunkw = ti.tokeizSqlunkw(sql);//分词好的非关键字数组
 

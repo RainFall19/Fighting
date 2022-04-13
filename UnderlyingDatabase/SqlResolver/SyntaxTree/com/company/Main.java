@@ -1,6 +1,7 @@
 package com.company;
 
 import Cache.Cache;
+import KeyWords.KeywordsTree;
 import tokeniz.Tok;
 
 import java.util.Scanner;
@@ -16,20 +17,27 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println(System.currentTimeMillis());
         TreeRoot treeroot = new TreeRoot("root");
         BulidTree bulidTree = new BulidTree();
         bulidTree.build(treeroot);
-//        Tok tok=new Tok();
-//        String[] key;
+        Tok tok=new Tok();
+        String[] key=new String[3];
+        key[0]="alter";
+        key[1]="put";
+        key[2]="scan";
+        String[] unkey;
 //        key=tok.tokeizSqlkw("put stu1,1011,info1:name,zzz");
-//        String[] unkey;
+//        unkey=tok.tokeizSqlunkw("put stu1,1011,info1:name,zzz");
 //        for (int i = 0; i < key.length; i++) {
 //            System.out.println(key[i]);
 //        }
-//        System.out.println(999);
+        KeywordsTree keyword=new KeywordsTree();
+        String key1[]=keyword.change(key);
+        for (int i = 0; i < key1.length; i++) {
+            System.out.println(key1[i]);
+        }
+        System.out.println(999);
 //        System.out.println(14);
-//        unkey=tok.tokeizSqlunkw("put stu1,1011,info1:name,zzz");
 //        for (int i = 0; i < unkey.length; i++) {
 //            System.out.println(unkey[i]);
 //        }

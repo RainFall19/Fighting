@@ -14,7 +14,7 @@ public class Tok implements TokenizImpl {
     @Override
     public String[] tokeizSqlunkw(String str) {
         String [] strArray1 = abc.unkeyWords.toArray(new String[abc.unkeyWords.size()]);
-        System.out.println("\n");
+//        System.out.println("\n");
 //        for (String tmp : strArray1 ) {
 //            System.out.println(tmp + " ");
 //        }//可输出查看有什么非关键字

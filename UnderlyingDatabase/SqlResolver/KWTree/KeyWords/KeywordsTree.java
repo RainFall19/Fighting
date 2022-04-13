@@ -8,6 +8,10 @@ public class KeywordsTree implements KTreeImpl {
     //创建一个根节点
     private KeywordsTreeNode root = new KeywordsTreeNode("xx", "root");
 
+    public KeywordsTree(){
+        CreateTree();
+    }
+
     private void CreateTree() {
         //把根节点赋给树(0层)
         tree.setRoot(root);
