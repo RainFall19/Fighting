@@ -23,6 +23,7 @@ public class Create {
 
     //创建表，列族
     //00 22
+    //00 22 20 01 23 21
     public void create_table(String[] s){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){
@@ -45,6 +46,7 @@ public class Create {
 
     //创建表，列族1，2
     //00 22 22
+    //00 22 20 01 23 21 22 20 01 23 21
     public void create_table_2(String[] s){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){
@@ -109,7 +111,16 @@ public class Create {
         }
     }
 
+    //
+    //00 22 20 01 23 21 22 20 01 23 22 23 21
 
 
+    //
+    //00 22 20 01 23 22 23 21 22 20 01 23 21
 
+    //
+    //00 22 20 01 23 22 23 21 22 20 01 23 22 23 21
+
+
+    
 }

@@ -20,7 +20,7 @@ public class abc{
     static int p, lines;
 
     public static void main(String[] args) {
-        sql( "put stu1,1011,info1:name,zzz");
+        sql( "put tableName rowKey,columnFamily:column,value;");
         for (String tmp : kW) {
             System.out.println(tmp + " ");
         }
@@ -50,15 +50,15 @@ public class abc{
             ch = str.charAt(p);
             if (Character.isDigit(ch)) {
                 digitCheck(str);
-            } else if (Character.isLetter(ch) || ch == '_'||ch == '{'||ch =='}'||ch ==','||ch ==':'||ch=='='||ch=='>') {
+            } else if (Character.isLetter(ch) || ch == '_'||ch=='='||ch=='>') {
                 letterCheck(str);
             }
-//            else if (ch == '"') {
-//                stringCheck(str);
-//            } else if (ch == '\'') {
-//                stringCheck1(str);
-//            }
-        else if (ch == ' ') {
+            else if (ch == '"') {
+                stringCheck(str);
+            } else if (ch == '\'') {
+                stringCheck1(str);
+            }
+            else if (ch == ' ') {
                 continue;
             } else if (ch == ';') {
                 break;
@@ -113,9 +113,10 @@ public class abc{
         char ch;
         for (; p < str.length(); p++) {
             ch = str.charAt(p);
-            if (!Character.isLetterOrDigit(ch) && ch != '_'&&ch!='='&&ch!='>') {
+            if (!Character.isLetterOrDigit(ch) && ch != '_' && ch!='=' && ch!='>'){
                 break;
-            } else {
+            }
+            else {
                 toke += ch;
             }
         }
@@ -134,33 +135,18 @@ public class abc{
         String toke = String.valueOf(str.charAt(p++));
         char ch;
         if (keyWords.contains(toke)) {
-            if (p <str.length()) {
-                ch = str.charAt(p);
-                if (keyWords.contains(toke + ch)) {
-                    toke += ch;
-                    p++;
-                    if (p < str.length()) {
-                        ch = str.charAt(p);
-                        if (keyWords.contains(toke + ch)) {
-                            toke += ch;
-                            unkeyWords.add(toke);
-                        } else {
-                            p--;
-                            unkeyWords.add(toke);
-                        }
-                    } else {
-                        unkeyWords.add(toke);
-                    }
-                } else {
-                    p--;
-                    unkeyWords.add(toke);
-                }
+            p--;
+            kW.add(toke);}
+        else {
+            if (!keyWords.contains(toke)){
+                p--;
+                unkeyWords.add(toke);
+            }else {
+                p--;
+                System.out.println(lines + "line" + ": " + toke + " is wrong");
             }
         }
-        else {
-            p--;
-            System.out.println(lines + "line" + ": " + toke + " is wrong");
-        }
+
     }
 
     //字符串检查

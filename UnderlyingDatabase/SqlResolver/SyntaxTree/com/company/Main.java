@@ -26,21 +26,21 @@ public class Main {
         key[1]="put";
         key[2]="scan";
         String[] unkey;
-//        key=tok.tokeizSqlkw("put stu1,1011,info1:name,zzz");
-//        unkey=tok.tokeizSqlunkw("put stu1,1011,info1:name,zzz");
-//        for (int i = 0; i < key.length; i++) {
-//            System.out.println(key[i]);
-//        }
+        key=tok.tokeizSqlkw("put stu1,1011,info1:name,zzz");
+        unkey=tok.tokeizSqlunkw("put stu1,1011,info1:name,zzz");
+        for (int i = 0; i < key.length; i++) {
+            System.out.println(key[i]);
+        }
         KeywordsTree keyword=new KeywordsTree();
         String key1[]=keyword.change(key);
-        for (int i = 0; i < key1.length; i++) {
-            System.out.println(key1[i]);
-        }
-        System.out.println(999);
-//        System.out.println(14);
-//        for (int i = 0; i < unkey.length; i++) {
-//            System.out.println(unkey[i]);
+//        for (int i = 0; i < key1.length; i++) {
+//            System.out.println(key1[i]);
 //        }
+//        System.out.println(999);
+//        System.out.println(14);
+        for (int i = 0; i < unkey.length; i++) {
+            System.out.println(unkey[i]);
+        }
 //        String[] s = {"03", "22", "20","23","21"};
 //        String[] n = {"stu1", "info1", "info3"};
 //        treeroot.deal(s,n);
