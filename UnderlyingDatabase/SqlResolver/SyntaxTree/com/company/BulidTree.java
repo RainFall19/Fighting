@@ -239,7 +239,7 @@ public class BulidTree {
             @Override
             public void deal_with(String[] s) {
                 Create create=new Create();
-                create.create_table_2(s);
+                create.create_c2(s);
             }
         };
         treeNode_l_11.setL_child(treeNode_l_12_l);
@@ -253,7 +253,9 @@ public class BulidTree {
         TreeNode treeNode_l_14 =new CreateNode("21"){
             @Override
             public void deal_with(String[] s) {
-                System.out.println("wwwww");
+                //00 22 20 01 23 22 23 21 22 20 01 23 22 23 21
+                Create create=new Create();
+                create.create_c3(s);
             }
         };
         treeNode_l_13.setL_child(treeNode_l_14);
@@ -279,7 +281,9 @@ public class BulidTree {
         TreeNode treeNode_r_10_r=new CreateNode("21"){
             @Override
             public void deal_with(String[] s) {
-                System.out.println("ggggggg");
+                //00 22 20 01 23 21 22 20 01 23 21
+                Create create=new Create();
+                create.create_table_2(s);
             }
         };
         treeNode_r_9.setL_child(treeNode_r_10_l);
@@ -293,7 +297,9 @@ public class BulidTree {
         TreeNode treeNode_r_12=new CreateNode("21"){
             @Override
             public void deal_with(String[] s) {
-                System.out.println("kkkkkk");
+                Create create=new Create();
+                create.create_c1(s);
+                //00 22 20 01 23 21 22 20 01 23 22 23 21
             }
         };
         treeNode_r_11.setL_child(treeNode_r_12);

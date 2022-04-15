@@ -89,9 +89,9 @@ public class Create {
         }
     }
 
-    //
-    //00 22 20 01 23 21
-    public void create_table_info(String[] s){
+    //创建表，列族，列族2参数
+    //00 22 20 01 23 21 22 20 01 23 22 23 21
+    public void create_c1(String[] s){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){
             file.mkdir();
@@ -99,7 +99,7 @@ public class Create {
             if (f1.exists()){
                 try{
                     BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/p.txt",true));
-                    bw.write("表名："+s[0]+"\t列族："+s[1]+"\t创建时间："+System.currentTimeMillis()+"\t修改时间："+System.currentTimeMillis()+"\n");
+                    bw.write("表名："+s[0]+"\t列族："+s[1]+","+s[2]+"\t"+s[3]+"=>"+s[4]+"\t创建时间："+System.currentTimeMillis()+"\t修改时间："+System.currentTimeMillis()+"\n");
                     bw.close();
                 }catch (IOException e){
                 }
@@ -111,16 +111,49 @@ public class Create {
         }
     }
 
-    //
-    //00 22 20 01 23 21 22 20 01 23 22 23 21
-
-
-    //
+    //创建表，列族1参数，列族2
     //00 22 20 01 23 22 23 21 22 20 01 23 21
+    public void create_c2(String[] s){
+        File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
+        if(!file.exists()){
+            file.mkdir();
+            File f1=new File("/home/bai/untitled/"+Main.database);
+            if (f1.exists()){
+                try{
+                    BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/p.txt",true));
+                    bw.write("表名："+s[0]+"\t列族："+s[1]+"\t"+s[2]+"=>"+s[3]+","+s[4]+"\t创建时间："+System.currentTimeMillis()+"\t修改时间："+System.currentTimeMillis()+"\n");
+                    bw.close();
+                }catch (IOException e){
+                }
 
-    //
+            }
+            System.out.println("创建成功...");
+        }else {
+            System.out.println("当前表已创建...");
+        }
+    }
+
+    //创建表，列族1参数，列族2参数
     //00 22 20 01 23 22 23 21 22 20 01 23 22 23 21
+    public void create_c3(String[] s){
+        File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
+        if(!file.exists()){
+            file.mkdir();
+            File f1=new File("/home/bai/untitled/"+Main.database);
+            if (f1.exists()){
+                try{
+                    BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/p.txt",true));
+                    bw.write("表名："+s[0]+"\t列族："+s[1]+"\t"+s[2]+"=>"+s[3]+","+s[4]+"\t"+s[5]+"=>"+s[6]+"\t创建时间："+System.currentTimeMillis()+"\t修改时间："+System.currentTimeMillis()+"\n");
+                    bw.close();
+                }catch (IOException e){
+                }
 
+            }
+            System.out.println("创建成功...");
+        }else {
+            System.out.println("当前表已创建...");
+        }
+    }
 
     
 }

@@ -6,7 +6,7 @@ import java.io.*;
 
 public class Put {
 
-
+    //02 22 22 24 22 22
     public boolean put_new_data(String[] s, DataNodeLink dataNode){
         File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
         if(!file.exists()){
@@ -38,7 +38,6 @@ public class Put {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         //放入列表中
         DataNodeLink d1=dataNode.getNext();
         while (d1.getData().getId()!=null){
