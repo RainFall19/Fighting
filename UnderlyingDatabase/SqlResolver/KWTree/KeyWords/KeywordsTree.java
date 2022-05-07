@@ -94,7 +94,6 @@ public class KeywordsTree implements KTreeImpl {
 
     public String[] change1(String[] arr, Tree tree) {
         String nums[] = new String[arr.length];
-
         for (int i = 0; i < arr.length; i++) {
             nums[i] = tree.compare(arr[i], tree.root);
         }

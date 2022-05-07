@@ -17,15 +17,19 @@ public class Tree{
 
 
     public String compare(String str, KeywordsTreeNode root) {
-        if (str == root.keyword) {
+        String s = null;
+        if (str.equals(root.keyword) ) {
             return root.num;
         }
         if (root.leftNode != null) {
-            compare(str, root.leftNode);
+            s=compare(str, root.leftNode);
+        }
+        if(s!=null){
+            return s;
         }
         if (root.rightNode != null) {
-            compare(str, root.rightNode);
+            s=compare(str, root.rightNode);
         }
-        return null;
+        return s;
     }
 }
