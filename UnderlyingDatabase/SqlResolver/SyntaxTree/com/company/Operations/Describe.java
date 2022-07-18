@@ -13,7 +13,7 @@ public class Describe {
      */ //传进来的是非关键字数组
     public void describe_tableCF(String[] s) {
         //创建一个对象指向当前表的元数据文件
-        File file = new File("/home/bai/untitled/" + Main.database + "/" + s[0] + "/p.txt");
+        File file = new File("Database/" + Main.database + "/" + s[0] + "/p.txt");
 
         //表文件夹存在
         try {

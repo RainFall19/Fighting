@@ -143,7 +143,6 @@ public class BulidTree {
         TreeNode use=new UseNode("26"){
             @Override
             public void deal_with(String[] s) {
-                System.out.println(111);
                 Use use1=new Use();
                 use1.use(s);
             }

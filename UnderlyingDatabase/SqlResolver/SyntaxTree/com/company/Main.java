@@ -23,20 +23,26 @@ public class Main {
 //        String[] s = {"00", "22","20","01","23","22","23","21","22","20","01","23","22","23","21"};
 //        String[] n = {"stu4", "info1"};
         Tok tok=new Tok();
-        String[] s=tok.tokeizSqlkw("get xx,x");
-        String[] n=tok.tokeizSqlunkw("get xx,x");
-        for (int i=0;i<s.length;++i){
-            System.out.println(s[i]);
-        }
-        for (int i=0;i<n.length;++i){
-            System.out.println(n[i]);
-        }
+        Scanner scanner=new Scanner(System.in);
+        String sql=scanner.nextLine();
+        String[] s=tok.tokeizSqlkw(sql);
+        String[] n=tok.tokeizSqlunkw(sql);
+//        for (int i=0;i<s.length;++i){
+//            System.out.println(s[i]);
+//        }
+//        for (int i=0;i<n.length;++i){
+//            System.out.println(n[i]);
+//        }
         KeywordsTree keywordsTree=new KeywordsTree();
         String[] x=keywordsTree.change(s);
-        for (int i=0;i<x.length;++i){
-            System.out.println(x[i]);
-        }
-//        treeroot.deal(s,n);
+//        for (int i=0;i<x.length;++i){
+//            System.out.println(x[i]);
+//        }
+//        while (true){
+//            System.out.println(database+":");
+//
+//        }
+        treeroot.deal(x,n);
 //        n[4]="xxx";
 //        treeroot.deal(s,n);
 //        for (int i=0;i<7;++i){

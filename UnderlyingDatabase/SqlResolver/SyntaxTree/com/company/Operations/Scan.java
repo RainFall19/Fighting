@@ -15,7 +15,7 @@ public class Scan {
      */
     public void scan_table_limit(String[] s) {
         //创建一个对象指向要查询的表文件夹
-        File file = new File("/home/bai/untitled/" + Main.database + "/" + s[0]);
+        File file = new File("Database/" + Main.database + "/" + s[0]);
         int row = Integer.parseInt(s[1]);//将传进来的限制行的非关键字(String)转为Int整数
         int line = 0;
         BufferedReader br = null;
@@ -50,7 +50,7 @@ public class Scan {
      */     //s[0]表名    s[1]行键
     public void scan_table_startRow(String[] s) {
         //创建一个对象指向要查询的表文件夹
-        File file = new File("/home/bai/untitled/" + Main.database + "/" + s[0]);
+        File file = new File("Database/" + Main.database + "/" + s[0]);
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
             //读取每一行
@@ -93,7 +93,7 @@ public class Scan {
      */     //s[0]表名    s[1]开头行键    s[2]末尾行键
     public void scan_table_startRow_endRow(String[] s) {
         //创建一个对象指向要查询的表文件夹
-        File file = new File("/home/bai/untitled/" + Main.database + "/" + s[0]);
+        File file = new File("Database/" + Main.database + "/" + s[0]);
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
             //读取每一行

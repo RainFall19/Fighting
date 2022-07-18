@@ -13,7 +13,7 @@ public class Get {
     //s[0]:tableName;s[1]:RowKey
     public void getData(String[] s) {
         //创建一个文件对象指向当前表文件
-        File file = new File("/home/bai/untitled/" + Main.database + "/" + s[0] + ".txt");
+        File file = new File("Database/" + Main.database + "/" + s[0] + ".txt");
 
 
     }

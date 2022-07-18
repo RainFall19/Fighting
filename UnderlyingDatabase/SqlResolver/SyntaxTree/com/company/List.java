@@ -6,7 +6,7 @@ public class List {
     //查看当前库中的所有表
     //07
     public void list(){
-        File file=new File("/home/bai/untitled/"+Main.database+"/p.txt");
+        File file=new File("Database/"+Main.database+"/p.txt");
         try {
             BufferedReader bufferedReader=new BufferedReader(new FileReader(file));
             String s;

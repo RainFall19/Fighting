@@ -12,7 +12,7 @@ public class Drop {
      */
     //删除表文件夹下的表文件和表元数据文件
     public void dropTable(String[] s) {//传进来的是非关键字数组
-        String tableFileName = "/home/bai/untitled/" + Main.database + "/" + s[0];
+        String tableFileName = "Database/" + Main.database + "/" + s[0];
         //创建一个对象指向要删除的表文件夹
         File file = new File(tableFileName);
 

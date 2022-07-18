@@ -6,14 +6,14 @@ public class Delete {
     //删除列族内所有数据
     //08 22 22
     public void delete_info(String[] s){
-        File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
+        File file=new File("Database/"+Main.database+"/"+s[0]);
         //判断当前数据库中表存在，不存在退出
         if(!file.exists()){
             System.out.println("当前数据库中"+s[0]+"表不存在...");
             return;
         }
         try {
-            File file1=new File("/home/bai/untitled/"+Main.database+"/"+s[0]+"/data.txt");
+            File file1=new File("Database/"+Main.database+"/"+s[0]+"/data.txt");
             BufferedReader bufferedReader=new BufferedReader(new FileReader(file1));
             String read;
             String write="";
@@ -49,14 +49,14 @@ public class Delete {
     //删除列族下列的所有数据
     //08 22 22 24
     public void delete_info_lie(String[] s){
-        File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
+        File file=new File("Database/"+Main.database+"/"+s[0]);
         //将表内数据按行读取出来进行匹配
         if(!file.exists()){
             System.out.println("当前数据库中"+s[0]+"表不存在...");
             return;
         }
         try {
-            File file1=new File("/home/bai/untitled/"+Main.database+"/"+s[0]+"/data.txt");
+            File file1=new File("Database/"+Main.database+"/"+s[0]+"/data.txt");
             BufferedReader bufferedReader=new BufferedReader(new FileReader(file1));
             String read;
             String write="";
@@ -93,14 +93,14 @@ public class Delete {
     //按时间删除列族下列的数据
     //08 22 22 24 22
     public void delete_info_time(String[] s){
-        File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
+        File file=new File("Database/"+Main.database+"/"+s[0]);
         //将表内数据按行读取出来进行匹配
         if(!file.exists()){
             System.out.println("当前数据库中"+s[0]+"表不存在...");
             return;
         }
         try {
-            File file1=new File("/home/bai/untitled/"+Main.database+"/"+s[0]+"/data.txt");
+            File file1=new File("Database/"+Main.database+"/"+s[0]+"/data.txt");
             BufferedReader bufferedReader=new BufferedReader(new FileReader(file1));
             String read;
             String write="";

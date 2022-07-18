@@ -7,7 +7,7 @@ public class Alter {
     //03 22
     public void alter_lie(String[] s){
         //打开数据库配置文件
-        File file=new File("/home/bai/untitled/"+Main.database+"/p.txt");
+        File file=new File("Database/"+Main.database+"/p.txt");
         try {
             //创建读出buffer
             BufferedReader reader=new BufferedReader(new FileReader(file));
@@ -35,8 +35,8 @@ public class Alter {
                 str=str+str1+"\n";
             }
             //打开写入配置文件将修改信息写入
-            File file1=new File("/home/bai/untitled/"+Main.database);
-            BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/p.txt"));
+            File file1=new File("Database/"+Main.database);
+            BufferedWriter bw=new BufferedWriter(new FileWriter("Database/"+Main.database+"/p.txt"));
             bw.write(str);
             //关闭文件
             reader.close();
@@ -52,8 +52,8 @@ public class Alter {
     //03 25
     public void alter_database(String[] s){
         //打开一个新文件一个就文件
-        File oldName =new File("/home/bai/untitled/"+s[0]);
-        File newName=new File("/home/bai/untitled/"+s[1]);
+        File oldName =new File("Database/"+s[0]);
+        File newName=new File("Database/"+s[1]);
         //如果新文件名存在就不允许修改，不存在进入下一步
         if(!newName.exists()){
             //将旧文件名改为新文件名
@@ -75,7 +75,7 @@ public class Alter {
     //03 22 08 23
     public void alter_delete(String[] s){
         //打开文件
-        File file=new File("/home/bai/untitled/"+Main.database+"/p.txt");
+        File file=new File("Database/"+Main.database+"/p.txt");
         try {
             BufferedReader reader=new BufferedReader(new FileReader(file));
             String read=null;
@@ -124,8 +124,8 @@ public class Alter {
                 str=str+str1+"\n";
             }
             //写入数据
-            File file1=new File("/home/bai/untitled/"+Main.database);
-            BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/p.txt"));
+            File file1=new File("Database/"+Main.database);
+            BufferedWriter bw=new BufferedWriter(new FileWriter("Database/"+Main.database+"/p.txt"));
             bw.write(str);
             reader.close();
             bw.close();
@@ -140,7 +140,7 @@ public class Alter {
     //03 22 20 23 21
     public void alter_info(String[] s){
         //打开文件
-        File file=new File("/home/bai/untitled/"+Main.database+"/p.txt");
+        File file=new File("Database/"+Main.database+"/p.txt");
         try {
             BufferedReader reader=new BufferedReader(new FileReader(file));
             String read=null;
@@ -189,8 +189,8 @@ public class Alter {
                 str=str+str1+"\n";
             }
             //写入数据
-            File file1=new File("/home/bai/untitled/"+Main.database);
-            BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/p.txt"));
+            File file1=new File("Database/"+Main.database);
+            BufferedWriter bw=new BufferedWriter(new FileWriter("Database/"+Main.database+"/p.txt"));
             bw.write(str);
             reader.close();
             bw.close();

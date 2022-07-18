@@ -8,13 +8,13 @@ public class Put {
 
     //02 22 22 24 22 22
     public boolean put_new_data(String[] s, DataNodeLink dataNode){
-        File file=new File("/home/bai/untitled/"+Main.database+"/"+s[0]);
+        File file=new File("Database/"+Main.database+"/"+s[0]);
         if(!file.exists()){
             System.out.println("当前数据库中没有"+s[0]+"表...");
             return false;
         }
         try {
-            BufferedReader br=new BufferedReader(new FileReader("/home/bai/untitled/"+Main.database+"/p.txt"));
+            BufferedReader br=new BufferedReader(new FileReader("Database/"+Main.database+"/p.txt"));
             String readFile;
             while ((readFile=br.readLine())!=null){
                 String[] readLine=readFile.split("\t");
@@ -63,9 +63,9 @@ public class Put {
 
 
     public void put_write(DataNodeLink d){
-        File file=new File("/home/bai/untitled/"+Main.database+"/"+d.getData().getTable());
+        File file=new File("Database/"+Main.database+"/"+d.getData().getTable());
         try {
-            BufferedWriter bw=new BufferedWriter(new FileWriter("/home/bai/untitled/"+Main.database+"/"+d.getData().getTable()+"/data.txt",true));
+            BufferedWriter bw=new BufferedWriter(new FileWriter("Database/"+Main.database+"/"+d.getData().getTable()+"/data.txt",true));
             while (d!=null){
                 bw.write(d.getData().getId()+"\t"+d.getData().getInfo()+":"+d.getData().getKey()+"=>"+d.getData().getVal()+"\t"+d.getData().getTime()+"\n");
                 d=d.getNext();
