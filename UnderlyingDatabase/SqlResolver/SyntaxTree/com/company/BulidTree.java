@@ -461,16 +461,43 @@ public class BulidTree {
     //建立put树
     private void build_put(TreeNode t){
         TreeNode treeNode_1=new PutNode("22");
+        TreeNode treeNode_1_r=new PutNode("24");
         t.setL_child(treeNode_1);
-
+        t.setR_child(treeNode_1_r);
 
         TreeNode treeNode_2=new PutNode("22");
+        TreeNode treeNode_2_r=new PutNode("24");
         treeNode_1.setL_child(treeNode_2);
+        treeNode_1.setR_child(treeNode_2_r);
 
+        TreeNode treeNode_r_2=new PutNode("20");
+        TreeNode treeNode_r_2_r=new PutNode("22"){
+            @Override
+            public void deal_with(String[] s) {
+
+            }
+        };
+        treeNode_1_r.setL_child(treeNode_r_2);
+        treeNode_1_r.setR_child(treeNode_r_2_r);
 
         TreeNode treeNode_3=new PutNode("24");
         treeNode_2.setL_child(treeNode_3);
 
+        TreeNode treeNode_3_r=new PutNode("22"){
+            @Override
+            public void deal_with(String[] s) {
+
+            }
+        };
+        treeNode_2_r.setL_child(treeNode_3_r);
+
+        TreeNode treeNode_r_3=new PutNode("21"){
+            @Override
+            public void deal_with(String[] s) {
+
+            }
+        };
+        treeNode_r_2.setL_child(treeNode_r_3);
 
         TreeNode treeNode_4=new PutNode("22"){
             @Override
