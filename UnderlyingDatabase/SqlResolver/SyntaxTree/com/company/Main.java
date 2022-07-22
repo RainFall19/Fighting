@@ -10,6 +10,8 @@ public class Main {
 
     //当前使用数据库
     public static String database = "stu";
+    //当前使用表
+    public static String table="stu1";
     //数据存储服务
     public static Storage service=new Storage();
     //cache
@@ -20,21 +22,21 @@ public class Main {
         TreeRoot treeroot = new TreeRoot("root");
         BulidTree bulidTree = new BulidTree();
         bulidTree.build(treeroot);
-//        String[] s = {"00", "22","20","01","23","22","23","21","22","20","01","23","22","23","21"};
-//        String[] n = {"stu4", "info1"};
-        Tok tok=new Tok();
-        Scanner scanner=new Scanner(System.in);
-        String sql=scanner.nextLine();
-        String[] s=tok.tokeizSqlkw(sql);
-        String[] n=tok.tokeizSqlunkw(sql);
+        String[] s = {"02","24","20","21"};
+        String[] n = {"info1","name","444","info1","name","555","info1","name","666"};
+//        Tok tok=new Tok();
+//        Scanner scanner=new Scanner(System.in);
+//        String sql=scanner.nextLine();
+//        String[] s=tok.tokeizSqlkw(sql);
+//        String[] n=tok.tokeizSqlunkw(sql);
 //        for (int i=0;i<s.length;++i){
 //            System.out.println(s[i]);
 //        }
 //        for (int i=0;i<n.length;++i){
 //            System.out.println(n[i]);
 //        }
-        KeywordsTree keywordsTree=new KeywordsTree();
-        String[] x=keywordsTree.change(s);
+//        KeywordsTree keywordsTree=new KeywordsTree();
+//        String[] x=keywordsTree.change(s);
 //        for (int i=0;i<x.length;++i){
 //            System.out.println(x[i]);
 //        }
@@ -42,7 +44,9 @@ public class Main {
 //            System.out.println(database+":");
 //
 //        }
-        treeroot.deal(x,n);
+        treeroot.deal(s,n);
+        Put put=new Put();
+        service.write_now();
 //        n[4]="xxx";
 //        treeroot.deal(s,n);
 //        for (int i=0;i<7;++i){

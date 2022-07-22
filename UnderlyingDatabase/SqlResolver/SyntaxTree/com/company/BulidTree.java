@@ -474,7 +474,11 @@ public class BulidTree {
         TreeNode treeNode_r_2_r=new PutNode("22"){
             @Override
             public void deal_with(String[] s) {
-
+                if (Main.service.put_new_data(s,2)) {
+                    System.out.println("添加成功...");
+                }else {
+                    System.out.println("添加失败...");
+                }
             }
         };
         treeNode_1_r.setL_child(treeNode_r_2);
@@ -486,7 +490,11 @@ public class BulidTree {
         TreeNode treeNode_3_r=new PutNode("22"){
             @Override
             public void deal_with(String[] s) {
-
+                if (Main.service.put_new_data(s,1)) {
+                    System.out.println("添加成功...");
+                }else {
+                    System.out.println("添加失败...");
+                }
             }
         };
         treeNode_2_r.setL_child(treeNode_3_r);
@@ -494,7 +502,11 @@ public class BulidTree {
         TreeNode treeNode_r_3=new PutNode("21"){
             @Override
             public void deal_with(String[] s) {
-
+                if (Main.service.put_new_data(s,3)) {
+                    System.out.println("添加成功...");
+                }else {
+                    System.out.println("添加失败...");
+                }
             }
         };
         treeNode_r_2.setL_child(treeNode_r_3);
@@ -502,7 +514,7 @@ public class BulidTree {
         TreeNode treeNode_4=new PutNode("22"){
             @Override
             public void deal_with(String[] s) {
-                if (Main.service.put_new_data(s)) {
+                if (Main.service.put_new_data(s,0)) {
                     System.out.println("添加成功...");
                 }else {
                     System.out.println("添加失败...");
@@ -515,7 +527,7 @@ public class BulidTree {
         TreeNode treeNode_5=new PutNode("22"){
             @Override
             public void deal_with(String[] s) {
-                if (Main.service.put_new_data(s)) {
+                if (Main.service.put_new_data(s,0)) {
                     System.out.println("添加成功...");
                 }else {
                     System.out.println("添加失败...");
