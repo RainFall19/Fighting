@@ -95,7 +95,8 @@ public class BulidTree {
         TreeNode count =new CountNode("15"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                Count count1=new Count();
+                count1.count(s);
             }
         };
         t.setCount(count);
@@ -502,10 +503,25 @@ public class BulidTree {
         TreeNode treeNode_r_3=new PutNode("21"){
             @Override
             public void deal_with(String[] s) {
-                if (Main.service.put_new_data(s,3)) {
-                    System.out.println("添加成功...");
-                }else {
-                    System.out.println("添加失败...");
+                int x = s[0].length();
+                char[] c = s[0].toCharArray();
+                for (int i = 0; i < s[0].length(); ++i) {
+                    if (c[i] >= '0' && c[i] <= '9') {
+                        x--;
+                    }
+                }
+                if (x != 0) {
+                    if (Main.service.put_new_data(s, 3)) {
+                        System.out.println("添加成功...");
+                    } else {
+                        System.out.println("添加失败...");
+                    }
+                }else if(x==0){
+                    if (Main.service.put_new_data(s, 4)) {
+                        System.out.println("添加成功...");
+                    } else {
+                        System.out.println("添加失败...");
+                    }
                 }
             }
         };
@@ -585,7 +601,8 @@ public class BulidTree {
         TreeNode treeNode_1=new DeleteAllNode("22"){
             @Override
             public void deal_with(String[] s) {
-                super.deal_with(s);
+                DeleteAll deleteAll=new DeleteAll();
+                deleteAll.delete_all(s);
             }
         };
         t.setL_child(treeNode_1);

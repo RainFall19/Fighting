@@ -98,20 +98,29 @@ public class Storage {
         boolean b=false;
         if(x==0){
             b=put.put_new_data(s, write);
+            write();
         }
         else if(x==1){
             b=put.put_new_data_table(s, write);
+            write();
         }
         else if(x==2){
             b=put.put_new_data_info(s,write);
+            write();
         }else if(x==3){
             int n=s.length/3;
             for (int i = 0; i < n; i++) {
                 b=put.put_new_data_info(new String[]{s[i*3],s[i*3+1],s[i*3+2]},write);
+                write();
+            }
+        }else if (x==4){
+            int n=s.length/4;
+            for (int i = 0; i < n; i++) {
+                b=put.put_new_data_table(new String[]{s[i*4],s[i*4+1],s[i*4+2],s[i*4+3]},write);
+                write();
             }
         }
         if(b){
-            write();
             return true;
         }
         return false;
@@ -300,11 +309,10 @@ public class Storage {
 
     //将内存中所以数据写入文件
     public void write_now() {
-        Read_Sever sever = read_sever.getNext();
-        while (sever.getData().getNext() != null) {
-            put.put_write(sever.getData().getNext());
-            sever = sever.getNext();
-        }
+        put.put_write(four_sever.getNext());
+        put.put_write(three_sever.getNext());
+        put.put_write(two_sever.getNext());
+        put.put_write(write.getNext());
     }
 
 

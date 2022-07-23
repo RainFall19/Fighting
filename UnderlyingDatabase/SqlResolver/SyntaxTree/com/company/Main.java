@@ -22,8 +22,8 @@ public class Main {
         TreeRoot treeroot = new TreeRoot("root");
         BulidTree bulidTree = new BulidTree();
         bulidTree.build(treeroot);
-        String[] s = {"02","24","20","21"};
-        String[] n = {"info1","name","444","info1","name","555","info1","name","666"};
+        String[] s = {"15"};
+        String[] n = {"stu1"};
 //        Tok tok=new Tok();
 //        Scanner scanner=new Scanner(System.in);
 //        String sql=scanner.nextLine();
@@ -45,8 +45,7 @@ public class Main {
 //
 //        }
         treeroot.deal(s,n);
-        Put put=new Put();
-        service.write_now();
+//        service.write_now();
 //        n[4]="xxx";
 //        treeroot.deal(s,n);
 //        for (int i=0;i<7;++i){
