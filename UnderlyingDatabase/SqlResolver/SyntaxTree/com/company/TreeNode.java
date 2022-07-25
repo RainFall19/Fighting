@@ -223,3 +223,14 @@ class UseNode extends TreeNode {
         System.out.println("use语法错误...");
     }
 }
+
+class Save extends TreeNode {
+    public Save(String id) {
+        super(id);
+    }
+
+    @Override
+    public void deal_with(String[] s) {
+        System.out.println("Save语法错误...");
+    }
+}

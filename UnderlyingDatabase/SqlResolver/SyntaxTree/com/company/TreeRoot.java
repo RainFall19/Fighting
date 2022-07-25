@@ -19,6 +19,15 @@ public class TreeRoot {
     private TreeNode truncate;
     private TreeNode show;
     private TreeNode use;
+    private TreeNode save;
+
+    public TreeNode getSave() {
+        return save;
+    }
+
+    public void setSave(TreeNode save) {
+        this.save = save;
+    }
 
     public TreeNode getShow() {
         return show;
@@ -232,6 +241,9 @@ public class TreeRoot {
             }
             case "26":{
                 dis(s,use,0,n);
+            }
+            case "31":{
+                dis(s,save,0,n);
             }
         }
     }

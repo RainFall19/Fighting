@@ -136,4 +136,46 @@ public class Delete {
             e.printStackTrace();
         }
     }
+
+
+    /***
+     * 08 31
+     * delete save v1.0
+     * 删除 版本 版本号（已经保存版本号）（包括本版本以及之前版本全部删除）
+     */
+    public void delete_save(String[] s){
+        File file=new File("Database/"+Main.database+"/"+Main.table+"/version.txt");
+        try{
+            BufferedReader reader=new BufferedReader(new FileReader(file));
+            String read="";
+            String time="";
+            while ((read=reader.readLine())!=null){
+                String[] s1=read.split("\t");
+                if(s[0].equals(s1[0])){
+                    time=s1[1];
+                    break;
+                }
+            }
+            reader.close();
+            reader=new BufferedReader(new FileReader(file));
+            String write="";
+            while ((read=reader.readLine())!=null){
+                String[] s1=read.split("\t");
+                if(time.compareTo(s1[1])>=0){
+                    File file1=new File("Database/"+Main.database+"/"+Main.table+"/"+s1[0]);
+                    file1.delete();
+                    continue;
+                }
+                write+=read+"\n";
+            }
+            reader.close();
+            BufferedWriter writer=new BufferedWriter(new FileWriter(file));
+            writer.write(write);
+            writer.close();
+        }catch (IOException e){
+            throw new RuntimeException();
+        }
+    }
+
+
 }

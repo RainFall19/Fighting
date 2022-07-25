@@ -1,5 +1,7 @@
 package com.company;
 
+import Version.Save;
+
 public class BulidTree {
     //建立语法树
     public void build(TreeRoot t){
@@ -149,6 +151,20 @@ public class BulidTree {
             }
         };
         t.setUse(use);
+
+
+        TreeNode save=new ScanNode("31"){
+            @Override
+            public void deal_with(String[] s) {
+                Save save1=new Save();
+                if(s.length>0){
+                    save1.save(s[0]);
+                }else {
+                    save1.save();
+                }
+            }
+        };
+        t.setSave(save);
     }
 
 
@@ -562,7 +578,15 @@ public class BulidTree {
                 super.deal_with(s);
             }
         };
+        TreeNode treeNode_1_r=new DeleteNode("31"){
+            @Override
+            public void deal_with(String[] s) {
+                Delete delete=new Delete();
+                delete.delete_save(s);
+            }
+        };
         t.setL_child(treeNode_1);
+        t.setR_child(treeNode_1_r);
 
 
         TreeNode treeNode_2=new DeleteNode("22"){
