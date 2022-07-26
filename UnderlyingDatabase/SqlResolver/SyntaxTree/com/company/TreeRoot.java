@@ -20,6 +20,15 @@ public class TreeRoot {
     private TreeNode show;
     private TreeNode use;
     private TreeNode save;
+    private TreeNode rollback;
+
+    public TreeNode getRollback() {
+        return rollback;
+    }
+
+    public void setRollback(TreeNode rollback) {
+        this.rollback = rollback;
+    }
 
     public TreeNode getSave() {
         return save;
@@ -244,6 +253,9 @@ public class TreeRoot {
             }
             case "31":{
                 dis(s,save,0,n);
+            }
+            case "32":{
+                dis(s,rollback,0,n);
             }
         }
     }

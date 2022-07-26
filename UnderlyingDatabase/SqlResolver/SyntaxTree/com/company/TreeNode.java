@@ -224,13 +224,25 @@ class UseNode extends TreeNode {
     }
 }
 
-class Save extends TreeNode {
-    public Save(String id) {
+class SaveNode extends TreeNode {
+    public SaveNode(String id) {
         super(id);
     }
 
     @Override
     public void deal_with(String[] s) {
         System.out.println("Save语法错误...");
+    }
+}
+
+
+class RollbackNode extends TreeNode {
+    public RollbackNode(String id) {
+        super(id);
+    }
+
+    @Override
+    public void deal_with(String[] s) {
+        System.out.println("Rollback语法错误...");
     }
 }

@@ -22,8 +22,8 @@ public class Main {
         TreeRoot treeroot = new TreeRoot("root");
         BulidTree bulidTree = new BulidTree();
         bulidTree.build(treeroot);
-        String[] s = {"08","31"};
-        String[] n = {"version4.0"};
+        String[] s = {"32"};
+        String[] n = {"version6.0"};
 //        Tok tok=new Tok();
 //        Scanner scanner=new Scanner(System.in);
 //        String sql=scanner.nextLine();

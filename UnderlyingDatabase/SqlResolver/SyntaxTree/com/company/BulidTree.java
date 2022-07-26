@@ -1,5 +1,6 @@
 package com.company;
 
+import Version.Rollback;
 import Version.Save;
 
 public class BulidTree {
@@ -153,7 +154,7 @@ public class BulidTree {
         t.setUse(use);
 
 
-        TreeNode save=new ScanNode("31"){
+        TreeNode save=new SaveNode("31"){
             @Override
             public void deal_with(String[] s) {
                 Save save1=new Save();
@@ -165,6 +166,16 @@ public class BulidTree {
             }
         };
         t.setSave(save);
+
+
+        TreeNode rollback=new RollbackNode("32"){
+            @Override
+            public void deal_with(String[] s) {
+                Rollback rollback1=new Rollback();
+                rollback1.rollback(s);
+            }
+        };
+        t.setRollback(rollback);
     }
 
 
