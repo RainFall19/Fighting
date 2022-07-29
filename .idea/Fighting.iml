@@ -10,6 +10,8 @@
       <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/PerformOperations/myproject/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnderlyingDatabase/PerformOperations" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resource" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
